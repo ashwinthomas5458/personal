@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    background-color: #ebeef0;
+    color: #1b262c;
+}
+body, button, input{
+    font-family:'Quicksand', sans-serif;
+}
+a{
+    text-decoration: none;
+    color: #1b262c;
+}
+/* NavBar */
+.t-navBar{
+    background-color: #eeeeee00;   
+    z-index: 3;
+    transition: 0.4s ease;
+}
+.t-navbaractive{
+    box-shadow: 2px 2px 40px #00000044;
+}
+.t-navList li.t-navLink{
+    list-style: none;
+}
+
+/* Dark mode Check */
+@media (prefers-color-scheme: dark) {
+    body{
+        background-color: #1b262c;
+        color:#ebeef0;
+    }
+    a{
+        color:#ebeef0; 
+    }
+}
