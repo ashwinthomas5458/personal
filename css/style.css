@@ -71,7 +71,7 @@ button{
 .t-work-wrapper{
     transform-style: preserve-3d;
     transform: perspective(1000px);
-    transition: all 0.4s ease-in;
+    transition: all 0.4s cubic-bezier(.03,.98,.52,.99);
 }
 .t-work-wrapper:hover{
     box-shadow: 10px 10px 20px rgba(0,0,0,.5);
