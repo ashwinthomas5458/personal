@@ -1,0 +1,210 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+html{
+    scroll-behavior: smooth;
+}
+body{
+    background-color: #151515;
+    color:#eeeeee;
+}
+body, button, input{
+    font-family: 'Poppins', sans-serif;
+}
+a{
+    text-decoration: none;
+    color: #eeeeee;
+}
+a:hover{
+    color: #eeeeee;
+}
+/* NavBar */
+.t-navBar{  
+    z-index: 3;
+    font-weight: 500;
+    background-color: #15151500;
+    transition: 0.4s ease;
+}
+.t-navbaractive{
+    background-color: #151515;
+    box-shadow: 0px 10px 20px rgba(0,0,0,.5);
+}
+.t-navList li.t-navLink{
+    list-style: none;
+    cursor: pointer;
+}
+.t-cover{ min-height: 100vh;}
+.t-tesseract-wrapper{
+    perspective: 1000px;
+    perspective-origin: 50% 4%;
+    -webkit-perspective: 1000px;
+    -webkit-perspective-origin: 50% 4%;
+    -moz-perspective: 1000px;
+    -moz-perspective-origin: 50% 4%;
+    width: 50%;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tesseract{
+    position: relative;
+    -moz-transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    transition: 0.2s ease;
+}
+.tesseractAnime{
+    animation: sceneRotate 30s infinite linear;
+}
+@keyframes sceneRotate {
+    to {
+      transform: rotateY(360deg);
+    }
+}
+.t-outer-cube{
+    width: 100px;
+    height: 100px;
+    /* background-color: rgba(0, 255, 255, 0.432); */
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    -moz-transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+.t-outer-cube div{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: url(../images/outer-texture.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    background-color: rgba(0, 255, 255, 0.2);
+    box-shadow: 0 0 50px rgba(2, 24, 34, 0.199) inset;
+    -moz-transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+.t-outer-cube .front { 
+    transform: translateZ(50px); 
+    -webkit-transform: translateZ(50px);
+    -moz-transform: translateZ(50px);
+}
+.t-outer-cube .right {
+    transform: rotateY(90deg) translateZ(50px); 
+    -webkit-transform: rotateY(90deg) translateZ(50px);
+    -moz-transform: rotateY(90deg) translateZ(50px);
+}
+.t-outer-cube .back { 
+    transform: rotateY(180deg) translateZ(50px); 
+    -webkit-transform:rotateY(180deg) translateZ(50px);
+    -moz-transform:rotateY(180deg) translateZ(50px);
+}
+.t-outer-cube .left {
+    transform: rotateY(270deg) translateZ(50px); 
+    -webkit-transform:rotateY(270deg) translateZ(50px);
+    -moz-transform:rotateY(270deg) translateZ(50px);
+}
+.t-outer-cube .top, .t-outer-cube .bottom{
+    width: 100px;
+    height: 100px;
+}
+.t-outer-cube .top{ 
+    transform: rotateX(90deg) translateZ(50px); 
+    -webkit-transform:rotateX(90deg) translateZ(50px);
+    -moz-transform:rotateX(90deg) translateZ(50px);
+}
+.t-outer-cube .bottom{
+    bottom: 0;
+    transform: rotateX(270deg) translateZ(50px);
+    -webkit-transform:rotateX(270deg) translateZ(50px);
+    -moz-transform:rotateX(270deg) translateZ(50px);
+}
+.t-inner-cube{
+    width: 50px;
+    height: 50px;
+    /* background-color: rgba(0, 255, 255, 0.432); */
+    position: absolute;
+    top: -25px;
+    left: -25px;
+    -moz-transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+.t-inner-cube div{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: url(../images/tesseract-texture.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    background-color: rgba(0, 255, 255, 0.329);
+    box-shadow: 0 0 25px rgba(2, 24, 34, 0.849) inset;
+    -moz-transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+.t-inner-cube .front { transform: translateZ(25px); }
+.t-inner-cube .right { transform: rotateY(90deg) translateZ(25px); }
+.t-inner-cube .back { transform: rotateY(180deg) translateZ(25px); }
+.t-inner-cube .left { transform: rotateY(270deg) translateZ(25px); }
+.t-inner-cube .top, .t-inner-cube .bottom{
+    width: 50px;
+    height: 50px;
+}
+.t-inner-cube .top{ transform: rotateX(90deg) translateZ(25px); }
+.t-inner-cube .bottom{
+    bottom: 0;
+    transform: rotateX(270deg) translateZ(25px);
+}
+.t-tesseract-glow{
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    background-image: url(../images/glow.png);
+    background-size: 200%;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    opacity: 0.5;
+}
+.t-text h1{
+    font-weight: 800;
+    font-size: 5rem;
+}
+/* Light mode Check */
+@media (prefers-color-scheme: Light) {
+    body{
+        background-color: #eeeeee;
+        color: #151515;
+    }
+    a, a:hover{
+        color:#151515; 
+    }
+    .t-s-btn:hover{
+        background-color: #1515152f;
+    }
+    .t-navbar{
+        background-color: #eeeeee00;
+    }
+    .t-navbaractive{
+        background-color: #eeeeee;
+        box-shadow: 0px 2px 40px #15151515;
+    }
+    .t-tesseract-glow{
+        opacity: 1;
+        background-size: 255%;
+    }
+}
