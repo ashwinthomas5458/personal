@@ -1,38 +1,83 @@
 window.addEventListener('load', ()=>{
     if(window.innerWidth>767){
-        activateTesseract();
+        loaderFade();
+        // activateTesseract();
         cardAnime();
+    }
+    else{
+        loaderRemove();
     }
     worksSlider();
 });
 
-const activateTesseract=()=>{
-    const cover = document.querySelector('.t-cover');
-    let tesseract = document.createElement('div');
-    tesseract.classList.add('t-tesseract-wrapper', 'position-relative');
-    tesseract.innerHTML = `<div class="position-absolute t-tesseract-glow"></div>
-        <div class="tesseract">
-            <div class="t-outer-cube">
-                <div class="top"></div>
-                <div class="front"></div>
-                <div class="back"></div>
-                <div class="right"></div>
-                <div class="left"></div>
-                <div class="bottom"></div> 
-            </div>
-            <div class="t-inner-cube">
-                <div class="top"></div>
-                <div class="front"></div>
-                <div class="back"></div>
-                <div class="right"></div>
-                <div class="left"></div>
-                <div class="bottom"></div> 
-            </div>
-        </div>`;
-    cover.appendChild(tesseract);
-     
-    tesseractAnime(); 
+const loaderRemove=()=>{
+    const coverText = document.querySelector('.t-text');
+    const body = document.querySelector('.t-body');
+    const tesseractWrapper = document.querySelector('.t-tesseract-wrapper');
+    const tesseract = document.querySelector('.tesseract');
+    const navBar = document.querySelector('.t-navBar');
+
+    tesseractWrapper.classList.add('t-nav-fade');
+    navBar.classList.remove('t-nav-fade');
+    setTimeout(()=>{
+        tesseractWrapper.classList.add('d-none');
+        coverText.classList.remove('d-none');
+    },600);
+    setTimeout(()=>{
+        coverText.classList.remove('t-cover-scroll');
+        body.classList.remove('position-fixed');
+        tesseract.classList.remove('tesseractAnime');
+    },700);
 }
+
+const loaderFade=()=>{
+    const coverText = document.querySelector('.t-text');
+    const body = document.querySelector('.t-body');
+    const tesseractWrapper = document.querySelector('.t-tesseract-wrapper');
+    const tesseract = document.querySelector('.tesseract');
+    const navBar = document.querySelector('.t-navBar');
+
+    coverText.classList.remove('d-none');
+    tesseractWrapper.classList.remove('container');
+    setTimeout(()=>{
+        coverText.classList.remove('t-cover-scroll');
+        navBar.classList.remove('t-nav-fade');
+        body.classList.remove('position-fixed');
+        tesseract.classList.remove('tesseractAnime');
+    },300);
+    setTimeout(()=>{
+        tesseract.classList.add('tesseractPosition');
+        tesseractAnime();
+    },1000);
+}
+
+// const activateTesseract=()=>{
+//     const cover = document.querySelector('.t-cover');
+//     let tesseract = document.createElement('div');
+//     tesseract.classList.add('t-tesseract-wrapper', 'position-relative');
+//     tesseract.innerHTML = `<div class="position-absolute t-tesseract-glow"></div>
+//         <div class="tesseract">
+//             <div class="t-outer-cube">
+//                 <div class="top"></div>
+//                 <div class="front"></div>
+//                 <div class="back"></div>
+//                 <div class="right"></div>
+//                 <div class="left"></div>
+//                 <div class="bottom"></div> 
+//             </div>
+//             <div class="t-inner-cube">
+//                 <div class="top"></div>
+//                 <div class="front"></div>
+//                 <div class="back"></div>
+//                 <div class="right"></div>
+//                 <div class="left"></div>
+//                 <div class="bottom"></div> 
+//             </div>
+//         </div>`;
+//     cover.appendChild(tesseract);
+     
+//     tesseractAnime(); 
+// }
 
 function tesseractAnime(){
     const tesseractWrapper = document.querySelector('.t-tesseract-wrapper');
@@ -69,7 +114,7 @@ const worksSlider = ()=>{
     leftBtn.addEventListener('click', ()=>{
         if(counter<1) return;
         if(window.innerWidth>767) removeCardAnime();
-        carousel.style.transition = `transform 0.3s ease-in-out`;
+        carousel.style.transition = `transform 0.5s ease-in-out`;
         cards[counter].classList.remove('t-card-active');
         counter = counter-1;
         cards.forEach(card=>{
@@ -82,7 +127,7 @@ const worksSlider = ()=>{
     rightBtn.addEventListener('click', ()=>{
         if(counter>3) return;
         if(window.innerWidth>767) removeCardAnime();
-        carousel.style.transition = `transform 0.3s ease-in-out`;
+        carousel.style.transition = `transform 0.5s ease-in-out`;
         cards[counter].classList.remove('t-card-active');
         counter = counter+1;
         cards.forEach(card=>{
@@ -97,7 +142,7 @@ const worksSlider = ()=>{
         card.addEventListener('click',()=>{
             if(card.classList.contains('t-card-inactive')){
                 if(window.innerWidth>767) removeCardAnime();
-                carousel.style.transition = `transform 0.3s ease-in-out`;
+                carousel.style.transition = `transform 0.5s ease-in-out`;
                 cards[counter].classList.remove('t-card-active');
                 counter = i;
                 cards.forEach(card=>{

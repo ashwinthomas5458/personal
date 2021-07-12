@@ -24,16 +24,6 @@
     font-weight: 400;
 }
 @font-face{
-    font-family: "Polly";
-    src: url(../../assets/fonts/Polly/Polly-light.otf);
-    font-weight:300;
-}
-@font-face{
-    font-family: "Polly";
-    src: url(../../assets/fonts/Polly/Polly-Thin.otf);
-    font-weight: 200;
-}
-@font-face{
     font-family: "Poppins";
     src: url(../../assets/fonts/Poppins/Poppins-Black.ttf);
     font-weight: 900;
@@ -60,6 +50,7 @@ a{
 a:hover{
     color: #eeeeee;
 }
+h1,h2,h3,h4,h5,h6{font-weight: 600;}
 button{
     font-weight: 600;
     width: max-content;
@@ -74,7 +65,11 @@ button{
     z-index: 3;
     font-weight: 400;
     background-color: #15151500;
-    transition: 0.4s ease;
+    transition: 0.6s ease;
+    opacity: 1;
+}
+.t-nav-fade{
+    opacity: 0;
 }
 .t-navbaractive{
     background-color: #151515;
@@ -98,6 +93,8 @@ button{
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: 0.5s ease;
+    opacity: 1;
 }
 .tesseract{
     position: relative;
@@ -105,7 +102,6 @@ button{
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
     transition: 0.3s ease;
-    transform: rotateX(-6deg) rotateY(20deg);
 }
 .tesseractAnime{
     animation: sceneRotate 30s infinite linear;
@@ -114,6 +110,9 @@ button{
     to {
       transform: rotateY(360deg);
     }
+}
+.tesseractPosition{
+    transform: rotateX(-6deg) rotateY(20deg);
 }
 .t-outer-cube{
     width: 100px;
@@ -221,6 +220,13 @@ button{
 
 .t-text{
     width: 50vw;
+    transform: translateY(0);
+    opacity: 1;
+    transition: transform 2s ease-out, opacity 0.6s ease;
+}
+.t-cover-scroll{
+    transform: translateY(40px);
+    opacity: 0;
 }
 .t-cover h1, .t-cover h3, .t-cover h5{ font-family: 'Poppins', sans-serif;}
 .t-cover h3{
@@ -277,6 +283,12 @@ button{
     transition: 0.3s ease;
 }
 .t-works-card-wrapper div{opacity: 1; transition: 0.3s ease;}
+.t-works-card-wrapper h3{
+    font-weight: 600;
+}
+.t-works-card-wrapper p{
+    font-size: clamp(12px, 1rem, 15px);
+}
 .t-mockup-wrapper{
     height: 100%;
 }
@@ -286,7 +298,9 @@ button{
     transform-style: preserve-3d;
     transition: 0.5s cubic-bezier(.03,.98,.52,.99);
 }
-.t-greenisis .t-mockup-wrapper{background: linear-gradient(40deg, #11998e, #00cdac); }
+.t-greenisis .t-mockup-wrapper{background: linear-gradient(225deg, #82c91e 5%, #38d9a9 95%); }
+.t-inches-new .t-mockup-wrapper{background: linear-gradient(45deg, #fd7e14 5%, #ffd43b 95%);}
+.t-inches .t-mockup-wrapper{background: linear-gradient(225deg, #7950f2 5%, #4dabf7 95%);}
 .t-btns-wrapper{
     top: 50%;
     left: 50%;
@@ -311,9 +325,37 @@ button{
     position: relative;
     z-index: 2;
 }
-.t-card-active .t-card-text{transform: translateZ(20px); transform-style: preserve-3d;}
+.t-card-active .t-card-text{
+    height: 100%;
+    transform: translateZ(20px);
+    transform-style: preserve-3d;
+}
+.t-stack.t-stack-html{background-image: url(../../assets/images/icons/html.svg);}
+.t-stack.t-stack-css{background-image: url(../../assets/images/icons/css.svg);}
+.t-stack.t-stack-js{background-image: url(../../assets/images/icons/js.svg);}
+.t-stack.t-stack-react{background-image: url(../../assets/images/icons/react.svg);}
+.t-stack.t-stack-sass{background-image: url(../../assets/images/icons/html.svg);}
+.t-stack-container{
+    transform-style: preserve-3d;
+    transform: translateZ(-20px);
+}
+.t-stack{
+    transform-style: preserve-3d;
+    border-radius: 40px;
+    padding: 8px 16px;
+    background-color: #202020;
+    background-position: 8px center;
+    background-size: 16px;
+    background-repeat: no-repeat;
+    padding-left: 32px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 4px 2px;
+    box-shadow: 4px 4px 10px rgba(0,0,0,.4);
+}
 /* Light mode Check */
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
     body{
         background-color: #eeeeee;
         color: #151515;
@@ -363,6 +405,10 @@ button{
     .t-works-card-wrapper .t-card-content{box-shadow:  0px 10px 20px rgba(0,0,0,.4);}
     .t-card-inactive{background: #ccc;}
     .t-card-inactive .t-card-content{box-shadow:  0px 10px 30px rgba(0,0,0,.3);}
+    .t-stack{
+        background-color: #f2f2f2;
+        box-shadow: 4px 4px 10px rgba(0,0,0,.1);
+    }
 }
 
  /* Responsive  */
@@ -377,6 +423,9 @@ button{
     .t-card-active .t-card-text{transform: translateZ(0);}
     .t-mockup-wrapper img{transform: translateZ(0);}
     .t-works-carousel, .t-works-carousel-wrapper{ height: unset;}
+    .t-works-card-wrapper p{
+        font-size: 13px;
+    }
 }
 @media only screen and (max-width: 767px){
     .t-text{width: 100%;}
@@ -389,8 +438,8 @@ button{
     .t-card-inactive{width: 300px; overflow: hidden; height: 400px;}
 }
 @media only screen and (max-width: 575px){
-    .t-works-card-wrapper{width: 280px;}
-    .t-works-carousel{width: 1230px;}
-    .t-works-carousel, .t-works-carousel-wrapper{ height:500px;}
-    .t-card-inactive{width: 200px; overflow: hidden; height: 320px;}
+    .t-works-card-wrapper{width: 90vw;}
+    .t-works-carousel{width: calc(590vw+150px);}
+    .t-works-carousel, .t-works-carousel-wrapper{ height:550px;}
+    .t-card-inactive{width: 80vw; overflow: hidden; height: 320px;}
 }

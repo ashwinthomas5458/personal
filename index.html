@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <header class="container-fluid px-0 t-navBar position-fixed">
+    <header class="container-fluid px-0 t-navBar position-fixed t-nav-fade">
         <div class="container d-flex align-items-center justify-content-between py-3">
             <a href="/" class="t-logo">
                 <img src="" alt="Logo-Icon">
@@ -31,9 +31,9 @@
             </div>
         </div>
     </header>
-    <div class="t-body container-fluid px-0">
+    <div class="t-body container-fluid px-0 position-fixed">
         <div class="t-cover container d-flex align-items-center justify-content-between px-lg-5">
-            <div class="t-text px-sm-0 px-3">
+            <div class="t-text px-sm-0 px-3 t-cover-scroll d-none">
                 <h3 class="mb-2">Hi, I am</h3>
                 <h1 class="mb-2">Ashwin Thomas.</h1>
                 <h5 class="mb-5">I design contents for the web.</h5>
@@ -46,6 +46,27 @@
                     </button>
                 </div>
             </div>
+            <div class="t-tesseract-wrapper position-relative container">
+                <div class="position-absolute t-tesseract-glow"></div>
+                <div class="tesseract tesseractAnime">
+                    <div class="t-outer-cube">
+                        <div class="top"></div>
+                        <div class="front"></div>
+                        <div class="back"></div>
+                        <div class="right"></div>
+                        <div class="left"></div>
+                        <div class="bottom"></div> 
+                    </div>
+                    <div class="t-inner-cube">
+                        <div class="top"></div>
+                        <div class="front"></div>
+                        <div class="back"></div>
+                        <div class="right"></div>
+                        <div class="left"></div>
+                        <div class="bottom"></div> 
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="t-works container-fluid px-0 position-relative d-flex flex-column justify-content-center">
             <div class="container py-4 py-sm-3 py-lg-0">
@@ -53,20 +74,24 @@
             </div>
             <div class="t-works-carousel-wrapper container-fluid px-0">
                 <div class="t-works-carousel d-flex align-items-center">
-                    <a data-target="https://greenisis.in" target="_blank" rel="noopener noreferrer" class="t-works-card-wrapper t-greenisis t-card-inactive">
+                    <a data-target="https://inchesnfeet.netlify.app" target="_blank" rel="noopener noreferrer" class="t-works-card-wrapper t-inches-new t-card-inactive">
                         <div class="container-fluid px-0 t-card-content">
                             <div class="row">
                                 <div class="col-md-7">
-                                    <div class="container p-5 t-mockup-wrapper d-flex align-items-center justify-content-center">
-                                        <img class="t-mockup-image" src="./assets/images/mockups/Greenisis-Large.png" alt="">
+                                    <div class="container p-3 p-md-5 t-mockup-wrapper d-flex align-items-center justify-content-center">
+                                        <img class="t-mockup-image" src="./assets/images/mockups/InchesNew-large.png" alt="Inches N Feet New mockup large">
                                     </div>
                                 </div>
                                 <div class="col-md-5">
-                                    <div class="container p-4 t-card-text">
-                                        <h3>Greenisis-3.</h3>
-                                        <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used
-                                            to demonstrate the visual form of a document or a typeface without relying on
-                                            meaningful content.</p>
+                                    <div class="container p-4 t-card-text d-flex flex-column justify-content-between">
+                                       <div>
+                                        <h3>Inches N Feet (Redesigned).</h3>
+                                        <p class="mb-4 mb-md-3">Redesigned website design for the architecture firm Inches N Feet.</p>
+                                       </div>
+                                        <div class="t-stack-container w-100 pt-5 pt-md-0 pb-3">
+                                            <span class="t-stack t-stack-react">react</span>
+                                            <span class="t-stack t-stack-sass">sass</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -77,76 +102,95 @@
                         <div class="container-fluid px-0 t-card-content">
                             <div class="row">
                                 <div class="col-md-7">
-                                    <div class="container p-5 t-mockup-wrapper d-flex align-items-center justify-content-center">
+                                    <div class="container p-3 p-md-5 t-mockup-wrapper d-flex align-items-center justify-content-center">
                                         <img class="t-mockup-image" src="./assets/images/mockups/Greenisis-Large.png" alt="">
                                     </div>
                                 </div>
                                 <div class="col-md-5">
-                                    <div class="container p-4 t-card-text">
-                                        <h3>Greenisis-1.</h3>
-                                        <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used
-                                            to demonstrate the visual form of a document or a typeface without relying on
-                                            meaningful content.</p>
+                                    <div class="container p-4 t-card-text d-flex flex-column justify-content-between">
+                                       <div>
+                                        <h3>Greenisis.</h3>
+                                        <p class="mb-4 mb-md-3">Greenisis is a tissue culture lab based in kerala that provide various plant products and other tissueculture based services.</p>
+                                       </div>
+                                        <div class="t-stack-container w-100 pt-5 pt-md-0 pb-3">
+                                            <span class="t-stack t-stack-html">html</span>
+                                            <span class="t-stack t-stack-css">css</span>
+                                            <span class="t-stack t-stack-js">js</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </a>
 
-                    <a data-target="https://greenisis.in" target="_blank" rel="noopener noreferrer" class="t-works-card-wrapper t-greenisis t-card-inactive">
+                    <a data-target="https://inchesnfeet.com" target="_blank" rel="noopener noreferrer" class="t-works-card-wrapper t-inches t-card-inactive">
                         <div class="container-fluid px-0 t-card-content">
                             <div class="row">
                                 <div class="col-md-7">
-                                    <div class="container p-5 t-mockup-wrapper d-flex align-items-center justify-content-center">
-                                        <img class="t-mockup-image" src="./assets/images/mockups/Greenisis-Large.png" alt="">
+                                    <div class="container p-3 p-md-5 t-mockup-wrapper d-flex align-items-center justify-content-center">
+                                        <img class="t-mockup-image" src="./assets/images/mockups/Inches-Large.png" alt="Inches N Feet mockup large">
                                     </div>
                                 </div>
                                 <div class="col-md-5">
-                                    <div class="container p-4 t-card-text">
-                                        <h3>Greenisis-2.</h3>
-                                        <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used
-                                            to demonstrate the visual form of a document or a typeface without relying on
-                                            meaningful content.</p>
+                                    <div class="container p-4 t-card-text d-flex flex-column justify-content-between">
+                                       <div>
+                                        <h3>Inches N Feet.</h3>
+                                        <p class="mb-4 mb-md-3">Architecture website for banglore based firm Inches N Feet.</p>
+                                       </div>
+                                        <div class="t-stack-container w-100 pt-5 pt-md-0 pb-3">
+                                            <span class="t-stack t-stack-html">html</span>
+                                            <span class="t-stack t-stack-css">css</span>
+                                            <span class="t-stack t-stack-js">js</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </a>
 
-                    <a data-target="https://greenisis.in" target="_blank" rel="noopener noreferrer" class="t-works-card-wrapper t-greenisis t-card-inactive">
+                    <a data-target="https://inchesnfeet.netlify.app" target="_blank" rel="noopener noreferrer" class="t-works-card-wrapper t-inches-new t-card-inactive">
                         <div class="container-fluid px-0 t-card-content">
                             <div class="row">
                                 <div class="col-md-7">
-                                    <div class="container p-5 t-mockup-wrapper d-flex align-items-center justify-content-center">
-                                        <img class="t-mockup-image" src="./assets/images/mockups/Greenisis-Large.png" alt="">
+                                    <div class="container p-3 p-md-5 t-mockup-wrapper d-flex align-items-center justify-content-center">
+                                        <img class="t-mockup-image" src="./assets/images/mockups/InchesNew-large.png" alt="Inches N Feet New mockup large">
                                     </div>
                                 </div>
                                 <div class="col-md-5">
-                                    <div class="container p-4 t-card-text">
-                                        <h3>Greenisis-3.</h3>
-                                        <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used
-                                            to demonstrate the visual form of a document or a typeface without relying on
-                                            meaningful content.</p>
+                                    <div class="container p-4 t-card-text d-flex flex-column justify-content-between">
+                                       <div>
+                                        <h3>Inches N Feet (Redesigned).</h3>
+                                        <p class="mb-4 mb-md-3">Redesigned website design for the architecture firm Inches N Feet.</p>
+                                       </div>
+                                        <div class="t-stack-container w-100 pt-5 pt-md-0 pb-3">
+                                            <span class="t-stack t-stack-react">react</span>
+                                            <span class="t-stack t-stack-sass">sass</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </a>
 
-                    <a data-target="https://greenisis.in" target="_blank" rel="noopener noreferrer" class="t-works-card-wrapper t-greenisis t-card-inactive">
+                    <a href="https://greenisis.in" data-target="https://greenisis.in" target="_blank" rel="noopener noreferrer" class="t-works-card-wrapper t-greenisis t-card-active">
                         <div class="container-fluid px-0 t-card-content">
                             <div class="row">
                                 <div class="col-md-7">
-                                    <div class="container p-5 t-mockup-wrapper d-flex align-items-center justify-content-center">
+                                    <div class="container p-3 p-md-5 t-mockup-wrapper d-flex align-items-center justify-content-center">
                                         <img class="t-mockup-image" src="./assets/images/mockups/Greenisis-Large.png" alt="">
                                     </div>
                                 </div>
                                 <div class="col-md-5">
-                                    <div class="container p-4 t-card-text">
-                                        <h3>Greenisis-1.</h3>
-                                        <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used
-                                            to demonstrate the visual form of a document or a typeface without relying on
-                                            meaningful content.</p>
+                                    <div class="container p-4 t-card-text d-flex flex-column justify-content-between">
+                                       <div>
+                                        <h3>Greenisis.</h3>
+                                        <p class="mb-4 mb-md-3">Greenisis is a tissue culture lab based in kerala that provide various plant products and other tissueculture based services.</p>
+                                       </div>
+                                        <div class="t-stack-container w-100 pt-5 pt-md-0 pb-3">
+                                            <span class="t-stack t-stack-html">html</span>
+                                            <span class="t-stack t-stack-css">css</span>
+                                            <span class="t-stack t-stack-js">js</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
