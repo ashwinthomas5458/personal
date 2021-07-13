@@ -440,6 +440,6 @@ button{
 @media only screen and (max-width: 575px){
     .t-works-card-wrapper{width: 90vw;}
     .t-works-carousel{width: calc(590vw+150px);}
-    .t-works-carousel, .t-works-carousel-wrapper{ height:550px;}
+    .t-works-carousel, .t-works-carousel-wrapper{ height:unset; min-height: 74vh;}
     .t-card-inactive{width: 80vw; overflow: hidden; height: 320px;}
 }
