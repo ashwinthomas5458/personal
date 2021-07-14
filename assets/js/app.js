@@ -108,7 +108,6 @@ const worksSlider = ()=>{
 
     let counter = 1;
     let margin = 30;
-    if(window.innerWidth<575){margin= 16;}
     const size = carousel.children[0].clientWidth+margin;
     const offset = -((size+(carousel.children[1].clientWidth+margin)/2)-window.innerWidth/2);
     carousel.style.transform = `translateX(${(offset-(size*(counter-1)))}px)`;
@@ -117,6 +116,7 @@ const worksSlider = ()=>{
         if(counter<1) return;
         if(window.innerWidth>767) removeCardAnime();
         carousel.style.transition = `transform 0.5s ease-in-out`;
+        if(window.innerWidth<575) carousel.style.transition = `transform 0.7s ease-in-out`;
         cards[counter].classList.remove('t-card-active');
         counter = counter-1;
         cards.forEach(card=>{
@@ -130,6 +130,7 @@ const worksSlider = ()=>{
         if(counter>3) return;
         if(window.innerWidth>767) removeCardAnime();
         carousel.style.transition = `transform 0.5s ease-in-out`;
+        if(window.innerWidth<575) carousel.style.transition = `transform 0.7s ease-in-out`;
         cards[counter].classList.remove('t-card-active');
         counter = counter+1;
         cards.forEach(card=>{

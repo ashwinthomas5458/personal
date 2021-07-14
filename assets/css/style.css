@@ -440,7 +440,7 @@ button{
 @media only screen and (max-width: 575px){
     .t-works-card-wrapper{
         width: 360px;
-        margin: 0 8px;
+        min-height: 60vh;
     }
     .t-mockup-wrapper img{height:  180px; object-fit: contain;}
     .t-works-carousel{width: 1640px;}
