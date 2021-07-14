@@ -287,7 +287,7 @@ button{
     font-weight: 600;
 }
 .t-works-card-wrapper p{
-    font-size: clamp(12px, 1rem, 15px);
+    font-size: clamp(14px, 1rem, 16px);
 }
 .t-mockup-wrapper{
     height: 100%;
@@ -335,6 +335,9 @@ button{
 .t-stack.t-stack-js{background-image: url(../../assets/images/icons/js.svg);}
 .t-stack.t-stack-react{background-image: url(../../assets/images/icons/react.svg);}
 .t-stack.t-stack-sass{background-image: url(../../assets/images/icons/html.svg);}
+.t-stack.t-stack-node{background-image: url(../../assets/images/icons/node.svg);}
+.t-stack.t-stack-ps{background-image: url(../../assets/images/icons/Ps.svg)}
+.t-stack.t-stack-il{background-image: url(../../assets/images/icons/Ai.svg)}
 .t-stack-container{
     transform-style: preserve-3d;
     transform: translateZ(-20px);
@@ -353,6 +356,44 @@ button{
     text-transform: uppercase;
     margin: 4px 2px;
     box-shadow: 4px 4px 10px rgba(0,0,0,.4);
+    float: left;
+}
+.t-about{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+.t-about-text{
+    margin-left: auto;
+    margin-right: 100px;
+    margin-top: 100px;
+    width: 50vw;
+}
+h2{
+    color: #0000;
+    font-family: 'Poppins', sans-serif;
+    font-size: 48px;
+    font-weight: 900;
+    -webkit-text-stroke:2px #eee;
+    -webkit-text-fill-color: #0000;
+
+}
+.t-about-text a{
+    text-decoration: underline;
+    color: #bbb;
+    transition: 0.3s ease;
+}
+.t-about-text a:hover{
+    color: #ddd;
+}
+.t-skills-wrapper{margin: 0 -8px}
+.t-about-text .t-stack{
+    transform-style: unset;
+    font-size: 14px;
+    text-transform: capitalize;
+    margin: 8px 6px;
+    box-shadow: 4px 4px 10px rgba(0,0,0,.3);
+    background-position: 10px center;
 }
 /* Light mode Check */
 @media (prefers-color-scheme: light) {
@@ -426,6 +467,11 @@ button{
     .t-works-card-wrapper p{
         font-size: 13px;
     }
+    .t-about-text{
+        margin-top: 60px;
+        margin-right: 60px;
+        width: 60vh;
+    }
 }
 @media only screen and (max-width: 767px){
     .t-text{width: 100%;}
@@ -436,6 +482,7 @@ button{
     .t-works-card-wrapper{width: 400px;}
     .t-works-carousel, .t-works-carousel-wrapper{ height:600px;}
     .t-card-inactive{width: 300px; overflow: hidden; height: 400px;}
+    h2{font-size: 36px;}
 }
 @media only screen and (max-width: 575px){
     .t-works-card-wrapper{ width: 360px; }
@@ -445,6 +492,12 @@ button{
     .t-works-carousel, .t-works-carousel-wrapper{ height:unset; min-height: 74vh;}
     .t-card-inactive{width: 360px; height: unset;}
     .t-card-inactive .t-card-text{min-height: unset;}
+    h2{font-size: 28px;}
+    .t-about-text{
+        margin-top: 120px;
+        margin-right: unset;
+        width: 80vw;
+    }
 }
 @media only screen and (max-width: 380px) {
     .t-works-card-wrapper{
