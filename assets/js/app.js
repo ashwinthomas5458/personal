@@ -108,7 +108,7 @@ const worksSlider = ()=>{
 
     let counter = 1;
     let margin = 30;
-    if(window.innerWidth<575){margin= 0.08*window.innerWidth}
+    if(window.innerWidth<575){margin= 16;}
     const size = carousel.children[0].clientWidth+margin;
     const offset = -((size+(carousel.children[1].clientWidth+margin)/2)-window.innerWidth/2);
     carousel.style.transform = `translateX(${(offset-(size*(counter-1)))}px)`;
