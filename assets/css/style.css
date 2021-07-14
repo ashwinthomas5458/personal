@@ -438,14 +438,13 @@ button{
     .t-card-inactive{width: 300px; overflow: hidden; height: 400px;}
 }
 @media only screen and (max-width: 575px){
-    .t-works-card-wrapper{
-        width: 360px;
-        min-height: 64vh;
-    }
+    .t-works-card-wrapper{ width: 360px; }
+    .t-works-card-wrapper .t-card-text{min-height: 300px;}
     .t-mockup-wrapper img{height:  180px; object-fit: contain;}
     .t-works-carousel{width: 1950px;}
     .t-works-carousel, .t-works-carousel-wrapper{ height:unset; min-height: 74vh;}
-    .t-card-inactive{width: 360px; min-height: 60vh; height: unset;}
+    .t-card-inactive{width: 360px; height: unset;}
+    .t-card-inactive .t-card-text{min-height: unset;}
 }
 @media only screen and (max-width: 380px) {
     .t-works-card-wrapper{
