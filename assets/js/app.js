@@ -107,8 +107,10 @@ const worksSlider = ()=>{
     const cards = document.querySelectorAll('.t-works-card-wrapper');
 
     let counter = 1;
-    const size = carousel.children[0].clientWidth+30;
-    const offset = -((size+(carousel.children[1].clientWidth+30)/2)-window.innerWidth/2);
+    let margin = 30;
+    if(window.innerWidth<575){margin= 0.08*window.innerWidth}
+    const size = carousel.children[0].clientWidth+margin;
+    const offset = -((size+(carousel.children[1].clientWidth+margin)/2)-window.innerWidth/2);
     carousel.style.transform = `translateX(${(offset-(size*(counter-1)))}px)`;
 
     leftBtn.addEventListener('click', ()=>{

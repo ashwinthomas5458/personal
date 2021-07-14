@@ -438,8 +438,12 @@ button{
     .t-card-inactive{width: 300px; overflow: hidden; height: 400px;}
 }
 @media only screen and (max-width: 575px){
-    .t-works-card-wrapper{width: 90vw;}
-    .t-works-carousel{width: calc(590vw+150px);}
+    .t-works-card-wrapper{
+        width: 90vw;
+        margin: 0 4vw;
+    }
+    .t-mockup-wrapper img{height:  180px; object-fit: contain;}
+    .t-works-carousel{width: 450vw;}
     .t-works-carousel, .t-works-carousel-wrapper{ height:unset; min-height: 74vh;}
     .t-card-inactive{width: 80vw; overflow: hidden; height: 320px;}
 }
