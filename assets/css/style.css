@@ -50,6 +50,13 @@ a{
 a:hover{
     color: #eeeeee;
 }
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+}
 h1,h2,h3,h4,h5,h6{font-weight: 600;}
 button{
     font-weight: 600;
@@ -278,7 +285,8 @@ button{
     transition: 0.3s ease;
 }
 .t-works-card-wrapper .t-card-content{
-    box-shadow:  0px 10px 30px rgba(0,0,0,.6);
+    box-shadow:-10px -10px 22px #212121,
+    10px 10px 22px #191919;
     transform-style: preserve-3d;
     transition: 0.3s ease;
 }
@@ -346,7 +354,6 @@ button{
     transform-style: preserve-3d;
     border-radius: 40px;
     padding: 8px 16px;
-    background-color: #202020;
     background-position: 8px center;
     background-size: 16px;
     background-repeat: no-repeat;
@@ -354,8 +361,9 @@ button{
     font-size: 12px;
     font-weight: 600;
     text-transform: uppercase;
-    margin: 4px 2px;
-    box-shadow: 4px 4px 10px rgba(0,0,0,.4);
+    margin: 8px 4px;
+    box-shadow:-4px -4px 12px #212121,
+    4px 4px 12px #191919;
     float: left;
 }
 .t-about{
@@ -369,7 +377,7 @@ button{
 }
 h2{
     font-family: 'Poppins', sans-serif;
-    font-size: 48px;
+    font-size: 50px;
     font-weight: 900;
     -webkit-text-stroke:2px #eee;
     -webkit-text-fill-color: #eee0;
@@ -386,11 +394,13 @@ h2{
 }
 .t-skills-wrapper{margin: 0 -8px}
 .t-about-text .t-stack{
+    background-color: #151515;
     transform-style: unset;
     font-size: 14px;
     text-transform: capitalize;
     margin: 8px 6px;
-    box-shadow: 4px 4px 10px rgba(0,0,0,.3);
+    box-shadow:-4px -4px 12px #212121,
+    4px 4px 12px #191919;
     background-position: 10px center;
 }
 .t-image-container{
@@ -400,11 +410,11 @@ h2{
 }
 .t-sketch{
     width: 480px;
-    filter: drop-shadow(40px 40px 80px #0006);
+    filter: drop-shadow(40px 40px 80px #0004);
     transition: filter 0.5s ease-out;
 }
 .t-sketch:hover{
-    filter: drop-shadow(40px 40px 80px #0008);
+    filter: drop-shadow(40px 40px 80px #0006);
 }
 .t-sketch-bg{
     top: 50%;
@@ -419,6 +429,36 @@ h2{
 }
 .t-sketch-bg:hover{
     filter: drop-shadow(40px 40px 80px #000a);
+}
+.t-contact-wrapper{
+    height: 100vh;
+    width: 100vw;
+}
+.t-contact{
+    max-width: 50vw;
+}
+.t-input-wrap{
+    padding-top: 30px;
+    width: 100%;
+    margin: 8px 0;
+}
+.t-input-wrap input, .t-input-wrap textarea{
+    width: 100%;
+    background-color: #0000;
+    color: #eee;
+    padding: 12px 16px;
+    border: 1px solid #eee;
+}
+.t-input-wrap input:focus, .t-input-wrap textarea:focus{border: 1px solid #eee; outline: none;}
+.t-input-wrap label{
+    top: 0;
+    left: 0;
+}
+.t-footer{
+    background: #111;
+    color: #333;
+    bottom: 0;
+    left: 0;
 }
 /* Light mode Check */
 @media (prefers-color-scheme: light) {
@@ -468,12 +508,17 @@ h2{
         color: #202020;
     }
     .t-s-btn:hover{ background: #20202020;}
-    .t-works-card-wrapper .t-card-content{box-shadow:  0px 10px 20px rgba(0,0,0,.4);}
+    .t-works-card-wrapper .t-card-content{box-shadow:-11px -11px 22px #ffffff,11px 11px 22px #cdcdcd;}
     .t-card-inactive{background: #ccc;}
     .t-card-inactive .t-card-content{box-shadow:  0px 10px 30px rgba(0,0,0,.3);}
     .t-stack{
-        background-color: #f2f2f2;
-        box-shadow: 4px 4px 10px rgba(0,0,0,.1);
+        box-shadow:-4px -4px 12px #ffffff,
+        4px 4px 12px #cdcdcd;
+    }
+    .t-about-text .t-stack{
+        background-color: #eeeeee;
+        box-shadow:-4px -4px 12px #ffffff,
+        4px 4px 12px #cdcdcd;
     }
     h2{
         -webkit-text-stroke:2px #151515;
@@ -482,8 +527,14 @@ h2{
     }
     .t-about-text a{color: #2f2f2f;}
     .t-about-text a:hover{color: #444;}
+    .t-sketch{filter: drop-shadow(40px 40px 80px #0001);}
+    .t-sketch:hover{filter: drop-shadow(40px 40px 80px #0002);}
+    .t-sketch-bg{filter: drop-shadow(40px 40px 80px #0001);}
+    .t-sketch-bg:hover{filter: drop-shadow(40px 40px 80px #0002);}
+    .t-about-text p, .t-about-text h2, .t-about-text a{text-shadow: 2px 2px 6px #0002;}
+    .t-input-wrap input{border: 1px solid #151515;}
+    .t-input-wrap input:focus, .t-input-wrap textarea:focus{border: 1px solid #151515; outline: none;}
 }
-
  /* Responsive  */
 @media only screen and (max-width: 992px){
     body{
@@ -504,6 +555,9 @@ h2{
         width: 60vh;
     }
     .t-image-container{left: 2vw;}
+    .t-contact{
+        max-width: 60vw;
+    }
 }
 @media only screen and (max-width: 767px){
     .t-text{width: 100%;}
@@ -514,12 +568,15 @@ h2{
     .t-works-card-wrapper{width: 400px;}
     .t-works-carousel, .t-works-carousel-wrapper{ height:600px;}
     .t-card-inactive{width: 300px; overflow: hidden; height: 400px;}
-    h2{font-size: 36px;}
+    h2{font-size: 38px;}
     .t-about-text{
         margin-right: unset;
         width: 70vh;
     }
     .t-image-container{left: -30vw;}
+    .t-contact{
+        max-width: 80vw;
+    }
 }
 @media only screen and (max-width: 575px){
     .t-works-card-wrapper{ width: 360px; }
@@ -534,6 +591,7 @@ h2{
         width: 70vw;
     }
     .t-image-container{
+        top: 54%;
         left: -160px;
     }
     .t-sketch{
@@ -544,6 +602,9 @@ h2{
         width: 420px;
         height: 420px;
     }
+    .t-contact{
+        max-width: 90vw;
+    }
 }
 @media only screen and (max-width: 380px) {
     .t-works-card-wrapper{
@@ -552,4 +613,6 @@ h2{
     }
     .t-card-inactive{width: 300px}
     .t-works-carousel{width: 1580px;}
+    .t-works-card-wrapper .t-card-text{min-height: unset;}
+    .t-works-carousel, .t-works-carousel-wrapper{ min-height: 80vh;}
 }
