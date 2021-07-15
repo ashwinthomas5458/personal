@@ -380,6 +380,7 @@ h2{
     color: #bbb;
     transition: 0.3s ease;
 }
+.t-about-text p, .t-about-text h2, .t-about-text a{text-shadow: 2px 2px 6px #0004;}
 .t-about-text a:hover{
     color: #ddd;
 }
@@ -533,14 +534,18 @@ h2{
         width: 70vw;
     }
     .t-image-container{
+        top: unset;
+        bottom: 0;
         left: -160px;
+        transform: translateY(0);
     }
     .t-sketch{
         width: 340px;
     }
     .t-sketch-bg{
-        width: 280px;
-        height: 280px;
+        top: 20%;
+        width: 420px;
+        height: 420px;
     }
 }
 @media only screen and (max-width: 380px) {
