@@ -535,7 +535,7 @@ h2{
     }
     .t-image-container{
         top: unset;
-        bottom: 0;
+        bottom: 130px;
         left: -160px;
         transform: translateY(0);
     }
