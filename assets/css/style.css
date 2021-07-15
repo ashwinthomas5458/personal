@@ -446,13 +446,11 @@ h2{
 .t-input-wrap input, .t-input-wrap textarea{
     width: 100%;
     background-color: #0000;
-    color: #eee;
+    color: #151515;
     padding: 12px 16px;
-    border: none;
-    box-shadow:  6px 6px 13px #171717,
-             -6px -6px 13px #232323;
+    border: 1px solid #eee;
 }
-.t-input-wrap input:focus, .t-input-wrap textarea:focus{border: none; outline: none;}
+.t-input-wrap input:focus, .t-input-wrap textarea:focus{border: 1px solid #eee; outline: none;}
 .t-input-wrap label{
     top: 0;
     left: 0;
@@ -538,12 +536,8 @@ h2{
     .t-sketch-bg{filter: drop-shadow(40px 40px 80px #0001);}
     .t-sketch-bg:hover{filter: drop-shadow(40px 40px 80px #0002);}
     .t-about-text p, .t-about-text h2, .t-about-text a{text-shadow: 2px 2px 6px #0002;}
-    .t-input-wrap input, .t-input-wrap textarea{
-        border: none;
-        box-shadow:  6px 6px 13px #b3b3b3,
-             -6px -6px 13px #ffffff;
-    }
-    .t-input-wrap input:focus, .t-input-wrap textarea:focus{border: none; outline: none;}
+    .t-input-wrap input, .t-input-wrap textarea{border: 1px solid #151515;}
+    .t-input-wrap input:focus, .t-input-wrap textarea:focus{border: 1px solid #151515; outline: none;}
     .t-footer{
         background: #eee;
         color: #bbb;
