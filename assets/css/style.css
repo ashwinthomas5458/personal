@@ -67,6 +67,14 @@ button{
     border-radius: 0;
     transition: 0.3s ease-in;
 }
+.t-logo{
+    width: 32px;
+    height: 32px;
+}
+.t-logo img{
+    width: 32px;
+    height: 32px;
+}
 /* NavBar */
 .t-navBar{  
     z-index: 3;
@@ -85,6 +93,7 @@ button{
 .t-navList li.t-navLink{
     list-style: none;
     cursor: pointer;
+    font-weight: 600;
 }
 
 .t-cover, .t-works{ min-height: 100vh;}
@@ -381,7 +390,6 @@ h2{
     font-weight: 900;
     -webkit-text-stroke:2px #eee;
     -webkit-text-fill-color: #eee0;
-
 }
 .t-about-text a{
     text-decoration: underline;
@@ -464,8 +472,9 @@ h2{
     box-shadow:  -6px -6px 16px #0e0e0e,
              6px 6px 13px #141414;
 }
+.t-logo-light{display: none;}
 /* Light mode Check */
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
     body{
         background-color: #eeeeee;
         color: #151515;
@@ -544,6 +553,8 @@ h2{
         box-shadow:  6px 6px 13px #b3b3b3,
              -6px -6px 13px #ffffff;
     }
+    .t-logo-light{display: block;}
+    .t-logo-dark{display: none;}
 }
  /* Responsive  */
 @media only screen and (max-width: 992px){
