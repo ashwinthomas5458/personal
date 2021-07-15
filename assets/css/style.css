@@ -534,10 +534,7 @@ h2{
         width: 70vw;
     }
     .t-image-container{
-        top: unset;
-        bottom: 130px;
         left: -160px;
-        transform: translateY(0);
     }
     .t-sketch{
         width: 340px;
