@@ -433,6 +433,7 @@ h2{
 .t-contact-wrapper{
     height: 100vh;
     width: 100vw;
+    overflow: hidden;
 }
 .t-contact{
     max-width: 50vw;
@@ -447,21 +448,26 @@ h2{
     background-color: #0000;
     color: #eee;
     padding: 12px 16px;
-    border: 1px solid #eee;
+    border: none;
+    box-shadow:  6px 6px 13px #171717,
+             -6px -6px 13px #232323;
 }
-.t-input-wrap input:focus, .t-input-wrap textarea:focus{border: 1px solid #eee; outline: none;}
+.t-input-wrap input:focus, .t-input-wrap textarea:focus{border: none; outline: none;}
 .t-input-wrap label{
     top: 0;
     left: 0;
 }
 .t-footer{
-    background: #111;
+    width: 100vw;
+    background: #151515;
     color: #333;
     bottom: 0;
     left: 0;
+    box-shadow:  -6px -6px 16px #0e0e0e,
+             6px 6px 13px #141414;
 }
 /* Light mode Check */
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
     body{
         background-color: #eeeeee;
         color: #151515;
@@ -532,8 +538,18 @@ h2{
     .t-sketch-bg{filter: drop-shadow(40px 40px 80px #0001);}
     .t-sketch-bg:hover{filter: drop-shadow(40px 40px 80px #0002);}
     .t-about-text p, .t-about-text h2, .t-about-text a{text-shadow: 2px 2px 6px #0002;}
-    .t-input-wrap input{border: 1px solid #151515;}
-    .t-input-wrap input:focus, .t-input-wrap textarea:focus{border: 1px solid #151515; outline: none;}
+    .t-input-wrap input, .t-input-wrap textarea{
+        border: none;
+        box-shadow:  6px 6px 13px #b3b3b3,
+             -6px -6px 13px #ffffff;
+    }
+    .t-input-wrap input:focus, .t-input-wrap textarea:focus{border: none; outline: none;}
+    .t-footer{
+        background: #eee;
+        color: #bbb;
+        box-shadow:  6px 6px 13px #b3b3b3,
+             -6px -6px 13px #ffffff;
+    }
 }
  /* Responsive  */
 @media only screen and (max-width: 992px){
