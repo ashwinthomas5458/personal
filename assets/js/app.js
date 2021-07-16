@@ -204,6 +204,7 @@ const removeCardAnime=()=>{
 function activeCardMouseMove(event){
     const activeCard = document.querySelector('.t-card-active');
     const cardImages = activeCard.querySelector('.t-mockup-image');
+    const cardImagesSmall = activeCard.querySelector('.t-mockup-image-small');
     const cardElement = activeCard.children[0];
 
     const wrapperWidth = activeCard.offsetWidth;
@@ -217,15 +218,18 @@ function activeCardMouseMove(event){
     const rotateY = mouseX / (wrapperWidth / 2);
     cardElement.style.transform = `rotateX(${rotateX*2}deg) rotateY(${rotateY}deg) `;
     cardImages.style.transform = `rotateX(${-rotateX}deg) rotateY(${-rotateY*0.5}deg) translateZ(20px)`;
+    cardImagesSmall.style.transform = `rotateX(${-rotateX}deg) rotateY(${-rotateY*0.5}deg) translateZ(30px)`;
 }
 
 function activeCardMouseLeave(e){
     const activeCard = document.querySelector('.t-card-active');
     const cardImages = activeCard.querySelector('.t-mockup-image');
+    const cardImagesSmall = activeCard.querySelector('.t-mockup-image-small');
     const cardElement = activeCard.children[0];
 
     cardElement.style.transform=`rotateX(0deg) rotateY(0deg) `;
     cardImages.style.transform = `rotateX(0deg) rotateY(0deg) translateZ(20px)`;
+    cardImagesSmall.style.transform = `rotateX(0deg) rotateY(0deg) translateZ(30px)`;
 }
 
 const navbarActive=()=>{
