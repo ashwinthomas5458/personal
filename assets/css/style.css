@@ -88,7 +88,8 @@ button{
 }
 .t-navbaractive{
     background-color: #151515;
-    box-shadow: 0px 10px 20px rgba(0,0,0,.5);
+    box-shadow:  -6px -6px 16px #0e0e0e,
+             6px 6px 13px #141414;
 }
 .t-navList li.t-navLink{
     list-style: none;
@@ -474,7 +475,7 @@ h2{
 }
 .t-logo-light{display: none;}
 /* Light mode Check */
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
     body{
         background-color: #eeeeee;
         color: #151515;
@@ -487,7 +488,8 @@ h2{
     }
     .t-navbaractive{
         background-color: #eeeeee;
-        box-shadow: 0px 2px 40px #15151515;
+        box-shadow:  2px 2px 8px #cccccc,
+             -2px -2px 8px #ffffff;
     }
     .t-tesseract-glow{
         opacity: 0.6;

@@ -8,6 +8,7 @@ window.addEventListener('load', ()=>{
         loaderRemove();
     }
     worksSlider();
+    scrollListeners();
 });
 
 const loaderRemove=()=>{
@@ -225,4 +226,18 @@ function activeCardMouseLeave(e){
 
     cardElement.style.transform=`rotateX(0deg) rotateY(0deg) `;
     cardImages.style.transform = `rotateX(0deg) rotateY(0deg) translateZ(20px)`;
+}
+
+const navbarActive=()=>{
+    var screenposition=window.innerHeight/3;
+    const navbar=document.querySelector('.t-navBar');
+
+    if(window.pageYOffset<screenposition) navbar.classList.remove('t-navbaractive');
+    else if(window.pageYOffset>screenposition) navbar.classList.add('t-navbaractive');
+}
+
+const scrollListeners=()=>{
+    window.addEventListener('scroll', (e)=>{
+        navbarActive();
+    })
 }
