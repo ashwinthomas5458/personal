@@ -22,9 +22,9 @@
             </a>
             <div class="t-nav d-flex">
                 <ul class="t-navList d-flex align-items-center justify-content-center mx-n2 mb-0">
-                    <li class="t-navLink px-2 px-md-3">Works</li>
-                    <li class="t-navLink px-2 px-md-3">About</li>
-                    <li class="t-navLink px-2 px-md-3">Contact</li>
+                    <a href="#works"><li class="t-navLink px-2 px-md-3">Works</li></a>
+                    <a href="#about"><li class="t-navLink px-2 px-md-3">About</li></a>
+                    <a href="#contact"><li class="t-navLink px-2 px-md-3">Contact</li></a>
                 </ul>
                 <div class="t-navBurger">
                     <div class="t-line1"></div>
@@ -41,9 +41,9 @@
                 <h1 class="mb-2">Ashwin Thomas.</h1>
                 <h5 class="mb-5">I doodle, design and build websites.</h5>
                 <div class="d-flex align-items-center">
-                    <button class="t-p-btn">
+                    <a href="#contact"><button class="t-p-btn">
                         Contact
-                    </button>
+                    </button></a>
                     <button class="t-s-btn mx-3">
                         Resume
                     </button>
@@ -71,9 +71,9 @@
                 </div>
             </div>
         </div>
-        <div class="t-works container-fluid px-0 position-relative d-flex flex-column justify-content-center">
+        <div id="works" class="t-works container-fluid px-0 position-relative d-flex flex-column justify-content-center">
             <div class="container py-4 py-sm-3 py-lg-0">
-                <h2>Favourites</h2>
+                <h2 class="t-transition-class t-translate-down t-translate-normal">Favourites</h2>
             </div>
             <div class="t-works-carousel-wrapper container-fluid px-0">
                 <div class="t-works-carousel d-flex align-items-center">
@@ -238,16 +238,16 @@
                 </button>
             </div>
         </div>
-        <div class="t-about position-relative d-flex align-items-center justify-content-end">
+        <div id="about" class="t-about position-relative d-flex align-items-center justify-content-end">
             <div class="t-image-container position-absolute">
                 <div class="position-relative">
-                    <div class="t-sketch-bg position-absolute"></div>
-                    <img src="./assets/images/sketch/ashwin_small.png" alt="sketch" class="t-sketch">
+                    <div class="t-sketch-bg t-sketch-bg-translate-down position-absolute"></div>
+                    <img src="./assets/images/sketch/ashwin_small.png" alt="sketch" class="t-sketch t-sketch-translate-down">
                 </div>
             </div>
             <div class="position-relative t-about-text pt-5 px-3 px-lg-4 mr-0 mr-md-4 mr-lg-5">
-                <h2 class="mb-4">I am,</h2>
-                <p>
+                <h2 class="mb-4 t-transition-class t-translate-down t-translate-normal">I am,</h2>
+                <p class="t-transition-class t-translate-down t-translate-normal">
                     An electrical and electronics engineer who love to doodle.
                     I started off designing logos and posters,
                     but became interested in web design once I started learning HTML and CSS.
@@ -256,8 +256,8 @@
                         Innovative Lab, Banglore</a>,
                     mainly handling front-end development.
                 </p>
-                <p class="mb-4">I'm good with,</p>
-                <div class="t-skills-wrapper">
+                <p class="mb-4 t-transition-class t-translate-down t-translate-normal">I'm good with,</p>
+                <div class="t-skills-wrapper t-transition-class t-translate-down t-translate-normal">
                     <span class="t-stack t-stack-js">Javascript</span>
                     <span class="t-stack t-stack-react">React</span>
                     <span class="t-stack t-stack-node">Node Js</span>
@@ -267,16 +267,16 @@
                 </div>
             </div>
         </div>
-        <div class="t-contact-wrapper d-flex align-items-center justify-content-center position-relative">
+        <div id="contact" class="t-contact-wrapper d-flex align-items-center justify-content-center position-relative">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h2 class="mb-5">Leave a Comment.</h2>
+                        <h2 class="mb-5 t-transition-class t-translate-down t-translate-normal">Leave a Comment.</h2>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 order-0 order-md-1">
-                        <div class="t-contact">
+                        <div class="t-contact t-transition-class t-translate-down t-translate-normal">
                             <form>
                                 <div class="container">
                                     <div class="row">
@@ -327,8 +327,8 @@
                             </form>
                         </div>
                     </div>
-                    <div class="col-md-6 order-1 order-md-0">
-                        <div class="container pt-4 pt-md-3 pt-lg-5 d-flex flex-md-column align-items-center align-items-md-start justify-content-center t-links">
+                    <div class="col-md-6 order-1 order-md-0 ">
+                        <div class="container pt-4 pt-md-3 pt-lg-5 d-flex flex-md-column align-items-center align-items-md-start justify-content-center t-links t-transition-class t-translate-down t-translate-normal">
                             <a href="mailto:ashwin.thomas.5458@gmail.com" class="t-mail-link d-flex align-items-center">
                                 <div class="t-mail-icon t-link-icon"></div>
                                 <span class="t-link-text ms-3 d-none d-md-block">ashwin.thomas.5458@gmail.com</span>

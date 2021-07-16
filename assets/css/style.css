@@ -76,6 +76,12 @@ button{
     width: 32px;
     height: 32px;
 }
+.t-transition-class{
+    transition: transform 5s ease-out;
+}
+.t-translate-normal{
+    transform: translateY(0);
+}
 /* NavBar */
 .t-navBar{  
     z-index: 3;
@@ -324,7 +330,7 @@ button{
     transform: translateZ(20px);
     transform-style: preserve-3d;
     transition: 0.5s cubic-bezier(.03,.98,.52,.99);
-    filter: drop-shadow(8px 8px 18px #0005);
+    filter: drop-shadow(8px 8px 18px #0006);
 }
 .t-greenisis .t-mockup-wrapper{background: linear-gradient(225deg, #82c91e 5%, #38d9a9 95%); }
 .t-inches-new .t-mockup-wrapper{background: linear-gradient(45deg, #fd7e14 5%, #ffd43b 95%);}
@@ -438,8 +444,12 @@ h2{
 }
 .t-sketch{
     width: 480px;
+    transform: translateY(0);
     filter: drop-shadow(40px 40px 80px #0004);
-    transition: filter 0.5s ease-out;
+    transition: filter 0.5s ease-out, transform 9s ease-out;
+}
+.t-sketch-translate-down{
+    transform: translateY(40%);
 }
 .t-sketch:hover{
     filter: drop-shadow(40px 40px 80px #0006);
@@ -453,7 +463,10 @@ h2{
     border-radius: 320px;
     background-image: linear-gradient(315deg, #228be6 5%, #3bc9db 95%);
     filter: drop-shadow(40px 40px 80px #0006);
-    transition: filter 0.5s ease-out;
+    transition: filter 0.5s ease-out, transform 7s ease-out;
+}
+.t-sketch-bg-translate-down{
+    transform: translate(-50%, -10%);
 }
 .t-sketch-bg:hover{
     filter: drop-shadow(40px 40px 80px #000a);
@@ -745,4 +758,7 @@ h2{
     .t-works-carousel{width: 1580px;}
     .t-works-card-wrapper .t-card-text{min-height: unset;}
     .t-works-carousel, .t-works-carousel-wrapper{ min-height: 80vh;}
+}
+.t-translate-down{
+    transform: translateY(40px);
 }

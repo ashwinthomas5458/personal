@@ -240,8 +240,25 @@ const navbarActive=()=>{
     else if(window.pageYOffset>screenposition) navbar.classList.add('t-navbaractive');
 }
 
+const appearOnScroll=(object, translateClass)=>{
+    var objects=document.querySelectorAll(object);
+    var screenposition=window.innerHeight/1.2;
+    objects.forEach(obj =>{
+        var objposition=obj.getBoundingClientRect().top;
+        if(objposition<screenposition){
+            obj.classList.remove(translateClass);
+        }
+        if(objposition>window.innerHeight){
+            obj.classList.add(translateClass);
+        }
+    })
+}
+
 const scrollListeners=()=>{
     window.addEventListener('scroll', (e)=>{
         navbarActive();
+        appearOnScroll('.t-translate-normal', 't-translate-down');
+        appearOnScroll('.t-sketch', 't-sketch-translate-down');
+        appearOnScroll('.t-sketch-bg', 't-sketch-bg-translate-down');
     })
 }
