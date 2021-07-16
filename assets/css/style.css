@@ -549,6 +549,7 @@ h2{
     left: -17%;
     top: 5%;
 }
+.t-btn-wrapper{ width: max-content;}
 /* Light mode Check */
 @media (prefers-color-scheme: light) {
     body{
@@ -761,4 +762,11 @@ h2{
 }
 .t-translate-down{
     transform: translateY(40px);
+}
+.t-disable-btn{
+    cursor: not-allowed;
+}
+.t-disable-btn button{
+    opacity: 0.6;
+    pointer-events: none;
 }

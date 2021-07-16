@@ -283,18 +283,18 @@
                                         <div class="col-lg-6">
                                             <div class="t-input-wrap position-relative">
                                                 <input type="text" placeholder="John Doe">
-                                                <label class="position-absolute" for="">Name</label>
+                                                <label class="position-absolute" for="" required>Name</label>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="t-input-wrap position-relative">
-                                                <input type="number" placeholder="9000 000 000">
-                                                <label class="position-absolute" for="">Number</label>
+                                                <input type="number" placeholder="9090909090">
+                                                <label class="position-absolute" for="" required>Number</label>
                                             </div>
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="t-input-wrap position-relative">
-                                                <input type="email" placeholder="john@outlook.com">
+                                                <input type="email" placeholder="john@outlook.com" required>
                                                 <label class="position-absolute" for="">Email</label>
                                             </div>
                                         </div>
@@ -306,20 +306,22 @@
                                         </div>
                                         <div class="col-lg-12 pt-3">
                                             <div class="container d-flex justify-content-end px-0">
-                                                <button
-                                                    class="t-p-btn d-flex align-items-center justify-content-center">
-                                                    <span class="me-2">Send</span>
-                                                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M16.1809 8.18091L5.26027 3.10154L7.60948 8.18091L5.26027 13.2603L16.1809 8.18091Z"
-                                                            stroke="#151515" stroke-width="1.2" stroke-miterlimit="10"
-                                                            stroke-linejoin="round" />
-                                                        <path d="M11.1015 8.18091H7.60948" stroke="#151515"
-                                                            stroke-width="1.2" stroke-miterlimit="10"
-                                                            stroke-linejoin="round" />
-                                                    </svg>
-                                                </button>
+                                                <div class="t-btn-wrapper">
+                                                    <button type="submit" id="t-form-submit-btn"
+                                                        class="t-p-btn d-flex align-items-center justify-content-center">
+                                                        <span class="me-2">Send</span>
+                                                        <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path
+                                                                d="M16.1809 8.18091L5.26027 3.10154L7.60948 8.18091L5.26027 13.2603L16.1809 8.18091Z"
+                                                                stroke="#151515" stroke-width="1.2" stroke-miterlimit="10"
+                                                                stroke-linejoin="round" />
+                                                            <path d="M11.1015 8.18091H7.60948" stroke="#151515"
+                                                                stroke-width="1.2" stroke-miterlimit="10"
+                                                                stroke-linejoin="round" />
+                                                        </svg>
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
