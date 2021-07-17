@@ -686,10 +686,10 @@ h2{
         box-shadow:-4px -4px 12px #ffffff,
         4px 4px 12px #cdcdcd;
     }
-    h2{
-        /* -webkit-text-stroke:2px #151515;
-        -webkit-text-fill-color: #15151500; */
-    }
+    /* h2{
+        -webkit-text-stroke:2px #151515;
+        -webkit-text-fill-color: #15151500;
+    } */
     .t-btns-wrapper button:hover{
         box-shadow:  15px 15px 31px #b3b3b3,
              -15px -15px 31px #ffffff;
@@ -774,9 +774,6 @@ h2{
     .t-other-works{height: 100vh;}
 }
 @media only screen and (max-width: 767px){
-    /* body{
-        font-size: 0.8rem;
-    } */
     .t-text{width: 100%;}
     .t-cover h1{font-size: 40px;}
     .t-cover h3{font-size: 22px;}
