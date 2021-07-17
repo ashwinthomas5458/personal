@@ -599,7 +599,7 @@ h2{
     opacity: 1;
 }
 /* Light mode Check */
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
     body{
         background-color: #eeeeee;
         color: #151515;
@@ -779,7 +779,7 @@ h2{
     .t-other-works-card{height: 50vw;}
     .t-other-works{min-height: 150vh;}
     .t-other-works-link h3{
-        font-size: 32px;
+        font-size: 28px;
     }
 }
 @media only screen and (max-width: 575px){
@@ -829,11 +829,11 @@ h2{
     }
     .t-other-works-card.t-vaccine-search{flex-direction: row-reverse;}
     .t-other-works-img{
-        width: 30vw;
-        height: 30vw;
+        width: 36vw;
+        height: 36vw;
     }
     a.t-other-works-link{
-        height: 30vw;
+        height: 36vw;
         padding: 20px;
         position: relative !important;
         opacity: 1;
@@ -844,7 +844,7 @@ h2{
         align-self: flex-end;
     }
     .t-other-works-link h3{
-        font-size: 24px;
+        font-size: 20px;
     }
 }
 @media only screen and (max-width: 380px) {
