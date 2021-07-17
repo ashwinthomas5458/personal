@@ -272,7 +272,7 @@ const formListeners=()=>{
     const submitBtnWrapper = document.querySelector('.t-btn-wrapper');
 
     submitBtnWrapper.addEventListener('click',()=>{
-        if(!typeof(nameInput.value)=="string" || !nameInput.value.length>2) nameInput.parentElement.classList.add('t-input-invalid');
+        if(nameInput.value.length<2) nameInput.parentElement.classList.add('t-input-invalid');
         if(!/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/.test(numberInput.value) || !numberInput.value.length==10) numberInput.parentElement.classList.add('t-input-invalid');
         if(!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(mailInput.value)) mailInput.parentElement.classList.add('t-input-invalid');
     });

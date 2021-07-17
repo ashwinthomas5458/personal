@@ -553,7 +553,7 @@ h2{
 .t-btn-wrapper{ width: max-content;}
 .t-other-works{
     width: 100vw;
-    height: 200vh;
+    height: 150vh;
 }
 .t-other-works-container{
     width: 80vw;
@@ -599,7 +599,7 @@ h2{
     opacity: 1;
 }
 /* Light mode Check */
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
     body{
         background-color: #eeeeee;
         color: #151515;
@@ -749,6 +749,7 @@ h2{
         width: 60vh;
     }
     .t-image-container{left: 2vw;}
+    .t-other-works{height: 100vh;}
 }
 @media only screen and (max-width: 767px){
     .t-text{width: 100%;}
@@ -773,6 +774,10 @@ h2{
         width: 100%;
         margin: unset;
     }
+    .t-other-works-container{width: 50vw;}
+    .t-other-works-wrapper{grid-template-columns: 1fr}
+    .t-other-works-card{height: 50vw;}
+    .t-other-works{min-height: 150vh;}
 }
 @media only screen and (max-width: 575px){
     .t-works-card-wrapper{ width: 360px; }
@@ -802,6 +807,35 @@ h2{
         top: 20%;
         width: 420px;
         height: 420px;
+    }
+    .t-other-works{height: 100vh;}
+    .t-other-works-container{
+        width: 90vw;
+        margin-left: unset;
+    }
+    .t-other-works-wrapper{
+        grid-row-gap: 24px;
+    }
+    .t-other-works-card{
+        display: flex;
+        width: 90vw;
+        height: max-content;
+    }
+    .t-other-works-card.t-vaccine-search{flex-direction: row-reverse;}
+    .t-other-works-img{
+        width: 30vw;
+        height: 30vw;
+    }
+    a.t-other-works-link{
+        height: 30vw;
+        padding: 20px;
+        position: relative !important;
+        opacity: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    .t-other-works-link p{
+        align-self: flex-end;
     }
 }
 @media only screen and (max-width: 380px) {
