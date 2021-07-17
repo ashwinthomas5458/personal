@@ -123,19 +123,19 @@ const worksSlider = ()=>{
     });
     carousel.addEventListener('touchstart',e=>{
         dragging= true;
-        dragStart=e.screenX;
+        dragStart=e.touches[0].screenX;
+        console.log(dragStart);
     });
+
     carousel.addEventListener('mouseup', (e)=>{ 
         dragging=false;
         let movedTo = e.screenX;
-        // console.log(movedTo, dragStart)
         if(dragStart>movedTo) rightBtn.click();
         else if(movedTo>dragStart) leftBtn.click();
     });
     carousel.addEventListener('touchend', (e)=>{ 
         dragging=false;
-        let movedTo = e.screenX;
-        // console.log(movedTo, dragStart)
+        let movedTo = e.changedTouches[0].screenX;
         if(dragStart>movedTo) rightBtn.click();
         else if(movedTo>dragStart) leftBtn.click();
     });
