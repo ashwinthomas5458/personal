@@ -598,6 +598,26 @@ h2{
 .t-other-works-link:hover{
     opacity: 1;
 }
+.t-dots-pattern{
+    width: 80px;
+    height: 150px;
+    background-image: url(../../assets/images/patterns/dots.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    pointer-events: none;
+    transition: transform 8s ease-out;
+}
+.t-about .t-dots-pattern{
+    right:0;
+    bottom: 50px;
+    opacity: 0;
+}
+.t-contact-wrapper .t-dots-pattern{
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
 /* Light mode Check */
 @media (prefers-color-scheme: light) {
     body{
@@ -781,6 +801,7 @@ h2{
     .t-other-works-link h3{
         font-size: 28px;
     }
+    .t-about .t-dots-pattern,.t-contact-wrapper .t-dots-pattern{opacity: 0.8;}
 }
 @media only screen and (max-width: 575px){
     .t-works-card-wrapper{ width: 360px; }
