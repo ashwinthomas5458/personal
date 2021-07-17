@@ -136,8 +136,9 @@ const worksSlider = ()=>{
     carousel.addEventListener('touchend', (e)=>{ 
         dragging=false;
         let movedTo = e.changedTouches[0].screenX;
-        if(dragStart>movedTo) rightBtn.click();
-        else if(movedTo>dragStart) leftBtn.click();
+        let distance = Math.abs(dragStart-movedTo);
+        if((dragStart>movedTo)&& distance>100) rightBtn.click();
+        else if((movedTo>dragStart) && distance>100) leftBtn.click();
     });
     carousel.addEventListener('mouseleave', ()=>{dragging=false;});
 
