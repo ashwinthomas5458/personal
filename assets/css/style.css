@@ -413,9 +413,9 @@ button{
 h2{
     font-family: 'Poppins', sans-serif;
     font-size: 50px;
-    font-weight: 900;
-    -webkit-text-stroke:2px #eee;
-    -webkit-text-fill-color: #eee0;
+    font-weight: 800;
+    /* -webkit-text-stroke:2px #eee;
+    -webkit-text-fill-color: #eee0; */
 }
 .t-about-text a{
     text-decoration: underline;
@@ -687,8 +687,8 @@ h2{
         4px 4px 12px #cdcdcd;
     }
     h2{
-        -webkit-text-stroke:2px #151515;
-        -webkit-text-fill-color: #15151500;
+        /* -webkit-text-stroke:2px #151515;
+        -webkit-text-fill-color: #15151500; */
     }
     .t-btns-wrapper button:hover{
         box-shadow:  15px 15px 31px #b3b3b3,
@@ -749,9 +749,9 @@ h2{
 
  /* Responsive  */
 @media only screen and (max-width: 992px){
-    /* body{
-        font-size: 0.8rem;
-    } */
+    body{
+        font-size: 0.9rem;
+    }
     .t-cover h1{font-size: 52px;}
     .t-works-carousel{width: 2830px;}
     .t-works-card-wrapper{width: 680px;}
@@ -774,6 +774,9 @@ h2{
     .t-other-works{height: 100vh;}
 }
 @media only screen and (max-width: 767px){
+    /* body{
+        font-size: 0.8rem;
+    } */
     .t-text{width: 100%;}
     .t-cover h1{font-size: 40px;}
     .t-cover h3{font-size: 22px;}
@@ -863,20 +866,23 @@ h2{
         display: flex;
         flex-direction: column;
     }
-    .t-other-works-link p{
-        align-self: flex-end;
-    }
     .t-other-works-link h3{
-        font-size: 20px;
+        font-size: 16px;
     }
 }
 @media only screen and (max-width: 380px) {
     .t-works-card-wrapper{
         width: 300px;
-        margin: 0 8px;
+        margin: 0 15px;
+    }
+    .t-section{
+        min-height: 120vh;
+        height: unset;
+        padding: 20px 0;
+
     }
     .t-card-inactive{width: 300px}
-    .t-works-carousel{width: 1580px;}
+    .t-works-carousel{width: 1650px;}
     .t-works-card-wrapper .t-card-text{min-height: unset;}
     .t-works-carousel, .t-works-carousel-wrapper{ min-height: 80vh;}
 }
