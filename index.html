@@ -267,6 +267,34 @@
                 </div>
             </div>
         </div>
+        <div class="t-other-works d-flex align-items-center justify-content-center">
+            <div class="t-other-works-container">
+                <h2 class="align-self-start mb-4 mb-lg-5 t-transition-class t-translate-down t-translate-normal">Other works.</h2>
+                <div class="t-other-works-wrapper">
+                    <div class="t-other-works-card position-relative t-other-works-large">
+                        <img src="./assets/images/mockups/inf-blog.png" alt="Inches N Feet Blog" class="t-other-works-img t-transition-class t-translate-down t-translate-normal">
+                        <a href="http://bloginf.herokuapp.com/" target="_blank" rel="noopener noreferrer" class="position-absolute t-other-works-link">
+                            <h3>Inches N Feet-Blog</h3>
+                            <p class="mt-auto ms-auto">-Node js</p>
+                        </a>
+                    </div>
+                    <div class="t-other-works-card position-relative">
+                        <img src="./assets/images/mockups/vaccine-search.png" alt="Vaccine search app" class="t-other-works-img t-transition-class t-translate-down t-translate-normal">
+                        <a href="https://vaccinesearch.netlify.app/" target="_blank" rel="noopener noreferrer" class="position-absolute t-other-works-link">
+                            <h3>Vaccine Availability Search</h3>
+                            <p class="mt-auto ms-auto">-HTML</p>
+                        </a>
+                    </div>
+                    <div class="t-other-works-card position-relative t-info-malayalam">
+                        <img src="./assets/images/mockups/infomalayalam.png" alt="Info malayalam news app" class="t-other-works-img t-transition-class t-translate-down t-translate-normal">
+                        <a href="https://news.infomalayalam.co.in/" target="_blank" rel="noopener noreferrer" class="position-absolute t-other-works-link">
+                            <h3>Infomalayalam News Website</h3>
+                            <p class="mt-auto ms-auto">-Next js</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div id="contact" class="t-contact-wrapper d-flex align-items-center justify-content-center position-relative">
             <div class="container">
                 <div class="row">
@@ -282,20 +310,23 @@
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="t-input-wrap position-relative">
-                                                <input type="text" placeholder="John Doe">
+                                                <input type="text" placeholder="John Doe" id="t-name-input">
                                                 <label class="position-absolute" for="" required>Name</label>
+                                                <span class="t-error-message position-absolute">Enter a valid name</span>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="t-input-wrap position-relative">
-                                                <input type="number" placeholder="9090909090">
-                                                <label class="position-absolute" for="" required>Number</label>
+                                                <input type="number" placeholder="9090909090" id="t-mob-input" required>
+                                                <label class="position-absolute" for="" >Number</label>
+                                                <span class="t-error-message position-absolute">Enter a valid number</span>
                                             </div>
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="t-input-wrap position-relative">
-                                                <input type="email" placeholder="john@outlook.com" required>
+                                                <input type="email" placeholder="john@outlook.com" id="t-email-input" required>
                                                 <label class="position-absolute" for="">Email</label>
+                                                <span class="t-error-message position-absolute">Enter a valid Email</span>
                                             </div>
                                         </div>
                                         <div class="col-lg-12">
@@ -306,8 +337,8 @@
                                         </div>
                                         <div class="col-lg-12 pt-3">
                                             <div class="container d-flex justify-content-end px-0">
-                                                <div class="t-btn-wrapper">
-                                                    <button type="submit" id="t-form-submit-btn"
+                                                <div class="t-btn-wrapper t-disable-btn">
+                                                    <button type="button" id="t-form-submit-btn"
                                                         class="t-p-btn d-flex align-items-center justify-content-center">
                                                         <span class="me-2">Send</span>
                                                         <svg width="17" height="17" viewBox="0 0 17 17" fill="none"

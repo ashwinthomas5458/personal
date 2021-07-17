@@ -9,6 +9,7 @@ window.addEventListener('load', ()=>{
     }
     worksSlider();
     scrollListeners();
+    formListeners();
 });
 
 const loaderRemove=()=>{
@@ -263,6 +264,68 @@ const scrollListeners=()=>{
     })
 }
 
-// const formListeners=()=>{
+const formListeners=()=>{
+    let numberValid; let emailValid; let nameValid;
+    const nameInput = document.querySelector('#t-name-input');
+    const numberInput = document.querySelector('#t-mob-input');
+    const mailInput = document.querySelector('#t-email-input');
+    const submitBtnWrapper = document.querySelector('.t-btn-wrapper');
 
-// }
+    submitBtnWrapper.addEventListener('click',()=>{
+        if(!typeof(nameInput.value)=="string" || !nameInput.value.length>2) nameInput.parentElement.classList.add('t-input-invalid');
+        if(!/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/.test(numberInput.value) || !numberInput.value.length==10) numberInput.parentElement.classList.add('t-input-invalid');
+        if(!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(mailInput.value)) mailInput.parentElement.classList.add('t-input-invalid');
+    });
+
+    nameInput.addEventListener('blur',e=>{
+        if(typeof(e.target.value)=="string"&&e.target.value.length>2){
+            nameValid=true;
+            nameInput.parentElement.classList.remove('t-input-invalid');
+            if(numberValid&&emailValid&&nameValid){
+                submitBtnWrapper.classList.remove('t-disable-btn');
+                submitBtnWrapper.children[0].setAttribute('type', 'submit');
+            }
+        }
+        else{
+            nameValid=false;
+            nameInput.parentElement.classList.add('t-input-invalid');
+            submitBtnWrapper.classList.add('t-disable-btn');
+        }
+    });
+
+    numberInput.addEventListener('blur',e=>{
+        if(/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/.test(e.target.value)&&e.target.value.length==10){
+            numberValid=true;
+            numberInput.parentElement.classList.remove('t-input-invalid');
+            if(numberValid&&emailValid&&nameValid){
+                submitBtnWrapper.classList.remove('t-disable-btn');
+                submitBtnWrapper.children[0].setAttribute('type', 'submit');
+            }
+        }
+        else{
+            numberValid=false;
+            numberInput.parentElement.classList.add('t-input-invalid');
+            submitBtnWrapper.classList.add('t-disable-btn');
+        }
+    });
+
+    mailInput.addEventListener('blur', e=>{
+        if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(e.target.value)){
+            emailValid=true;
+            mailInput.parentElement.classList.remove('t-input-invalid');
+            if(numberValid&&emailValid&&nameValid) {
+                submitBtnWrapper.classList.remove('t-disable-btn');
+                submitBtnWrapper.children[0].setAttribute('type', 'submit');
+            }
+        }
+        else{
+            emailValid=false;
+            mailInput.parentElement.classList.add('t-input-invalid');
+            submitBtnWrapper.classList.add('t-disable-btn');
+        }
+    });
+
+    nameInput.addEventListener('focus', ()=>nameInput.parentElement.classList.remove('t-input-invalid'));
+    numberInput.addEventListener('focus', ()=>numberInput.parentElement.classList.remove('t-input-invalid'))
+    mailInput.addEventListener('focus', ()=>mailInput.parentElement.classList.remove('t-input-invalid'))
+}
