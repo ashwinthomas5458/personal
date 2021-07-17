@@ -117,9 +117,20 @@ const worksSlider = ()=>{
     const offset = -((size+(carousel.children[1].clientWidth+margin)/2)-window.innerWidth/2);
     carousel.style.transform = `translateX(${(offset-(size*(counter-1)))}px)`;
 
+    carousel.addEventListener('mousedown',e=>{
+        dragging= true;
+        dragStart=e.screenX;
+    });
     carousel.addEventListener('touchstart',e=>{
         dragging= true;
         dragStart=e.screenX;
+    });
+    carousel.addEventListener('mouseup', (e)=>{ 
+        dragging=false;
+        let movedTo = e.screenX;
+        // console.log(movedTo, dragStart)
+        if(dragStart>movedTo) rightBtn.click();
+        else if(movedTo>dragStart) leftBtn.click();
     });
     carousel.addEventListener('touchend', (e)=>{ 
         dragging=false;
@@ -128,12 +139,12 @@ const worksSlider = ()=>{
         if(dragStart>movedTo) rightBtn.click();
         else if(movedTo>dragStart) leftBtn.click();
     });
-    // carousel.addEventListener('mouseleave', ()=>{dragging=false;});
+    carousel.addEventListener('mouseleave', ()=>{dragging=false;});
 
-    // carousel.addEventListener('mousemove', e=>{
-    //     if(!dragging) return;
-    //     e.preventDefault();
-    // })
+    carousel.addEventListener('mousemove', e=>{
+        if(!dragging) return;
+        e.preventDefault();
+    })
 
     leftBtn.addEventListener('click', ()=>{
         if(counter<1) return;
