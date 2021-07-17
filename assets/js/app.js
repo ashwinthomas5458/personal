@@ -12,6 +12,7 @@ window.addEventListener('load', ()=>{
     formListeners();
 });
 
+
 const loaderRemove=()=>{
     const coverText = document.querySelector('.t-text');
     const body = document.querySelector('.t-body');
@@ -108,11 +109,31 @@ const worksSlider = ()=>{
     const rightBtn = document.querySelector('.t-right-btn');
     const cards = document.querySelectorAll('.t-works-card-wrapper');
 
+    let dragStart;
+    let dragging;
     let counter = 1;
     let margin = 30;
     const size = carousel.children[0].clientWidth+margin;
     const offset = -((size+(carousel.children[1].clientWidth+margin)/2)-window.innerWidth/2);
     carousel.style.transform = `translateX(${(offset-(size*(counter-1)))}px)`;
+
+    carousel.addEventListener('touchstart',e=>{
+        dragging= true;
+        dragStart=e.screenX;
+    });
+    carousel.addEventListener('touchend', (e)=>{ 
+        dragging=false;
+        let movedTo = e.screenX;
+        // console.log(movedTo, dragStart)
+        if(dragStart>movedTo) rightBtn.click();
+        else if(movedTo>dragStart) leftBtn.click();
+    });
+    // carousel.addEventListener('mouseleave', ()=>{dragging=false;});
+
+    // carousel.addEventListener('mousemove', e=>{
+    //     if(!dragging) return;
+    //     e.preventDefault();
+    // })
 
     leftBtn.addEventListener('click', ()=>{
         if(counter<1) return;
@@ -214,7 +235,6 @@ function activeCardMouseMove(event){
     const centerY = activeCard.getBoundingClientRect().top + wrapperHeight / 2;
     const mouseX = event.clientX - centerX;
     const mouseY = event.clientY - centerY;
-    console.log(wrapperWidth, wrapperHeight, centerX, centerY, event.clientX, event.clientY);
     const rotateX = (-1) * mouseY / (wrapperHeight / 2);
     const rotateY = mouseX / (wrapperWidth / 2);
     cardElement.style.transform = `rotateX(${rotateX*2}deg) rotateY(${rotateY}deg) `;

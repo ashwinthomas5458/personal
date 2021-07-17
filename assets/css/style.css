@@ -778,6 +778,9 @@ h2{
     .t-other-works-wrapper{grid-template-columns: 1fr}
     .t-other-works-card{height: 50vw;}
     .t-other-works{min-height: 150vh;}
+    .t-other-works-link h3{
+        font-size: 32px;
+    }
 }
 @media only screen and (max-width: 575px){
     .t-works-card-wrapper{ width: 360px; }
@@ -808,7 +811,10 @@ h2{
         width: 420px;
         height: 420px;
     }
-    .t-other-works{height: 100vh;}
+    .t-other-works{
+        height: 100vh;
+        min-height: unset;
+    }
     .t-other-works-container{
         width: 90vw;
         margin-left: unset;
@@ -836,6 +842,9 @@ h2{
     }
     .t-other-works-link p{
         align-self: flex-end;
+    }
+    .t-other-works-link h3{
+        font-size: 24px;
     }
 }
 @media only screen and (max-width: 380px) {
