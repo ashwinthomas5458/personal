@@ -77,7 +77,7 @@ button{
     height: 32px;
 }
 .t-transition-class{
-    transition: transform 5s ease-out;
+    transition: transform 4s ease-out;
 }
 .t-translate-normal{
     transform: translateY(0);
@@ -884,7 +884,7 @@ h2{
     .t-works-carousel, .t-works-carousel-wrapper{ min-height: 80vh;}
 }
 .t-translate-down{
-    transform: translateY(40px);
+    transform: translateY(30px);
 }
 .t-disable-btn{
     cursor: not-allowed;
