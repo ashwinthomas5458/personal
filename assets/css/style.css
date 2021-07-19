@@ -466,7 +466,7 @@ h2{
     transition: filter 0.5s ease-out, transform 7s ease-out;
 }
 .t-sketch-bg-translate-down{
-    transform: translate(-50%, -10%);
+    transform: translate(-50%, -40%);
 }
 .t-sketch-bg:hover{
     filter: drop-shadow(40px 40px 80px #000a);
