@@ -291,7 +291,6 @@ const scrollListeners=()=>{
     window.addEventListener('scroll', (e)=>{
         navbarActive();
         appearOnScroll('.t-translate-normal', 't-translate-down');
-        appearOnScroll('.t-sketch', 't-sketch-translate-down');
         appearOnScroll('.t-sketch-bg', 't-sketch-bg-translate-down');
     })
 }
