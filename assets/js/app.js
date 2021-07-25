@@ -7,11 +7,23 @@ window.addEventListener('load', ()=>{
     else{
         loaderRemove();
     }
+    navItemClick();
     worksSlider();
     scrollListeners();
     formListeners();
+    // getNavPositions();
 });
 
+// let navItems = ["works", "about", "contact"];
+// let navPositions=[];
+
+// const getNavPositions=()=>{
+//     navItems.forEach(navItem=>{
+//         let targetItem = document.querySelector(`#${navItem}`);
+//         let postion = targetItem.offsetTop-2;
+//         navPositions.push(postion);
+//     });
+// }
 
 const loaderRemove=()=>{
     const coverText = document.querySelector('.t-text');
@@ -287,11 +299,59 @@ const appearOnScroll=(object, translateClass)=>{
     })
 }
 
+const navItemClick = ()=>{
+    let navLink = document.querySelectorAll('.t-nav-item-link');
+
+    navLink.forEach(link=>{
+        link.addEventListener('click',()=>{
+            let targetId = link.dataset.navTarget; 
+            let targetItem = document.querySelector(`#${targetId}`);
+            window.scrollTo(0, targetItem.offsetTop);
+            // let pageId = { id: "100" };
+            // window.history.replaceState(pageId, targetId, `/${targetId}`);
+        });
+    });
+}
+
+// const acitiveNavItem=()=>{
+//     let windowPosition = window.window.pageYOffset;
+//     let urlItems = window.location.href.split('/');
+//     let activeItem = urlItems[3];
+
+    
+
+//     if(windowPosition<navPositions[0]){
+//         if(activeItem){
+//             let pageId = { id: "100" };
+//             window.history.replaceState(pageId, "home", `/`);
+//         }
+//     }
+//     else if(windowPosition>navPositions[0]&&windowPosition<navPositions[1]){
+//         if(activeItem!=navItems[0]){
+//             let pageId = { id: "100" };
+//             window.history.replaceState(pageId, navItems[0], `/${navItems[0]}`);
+//         }  
+//     }
+//     else if(windowPosition>navPositions[1]&&windowPosition<navPositions[2]){
+//         if(activeItem!=navItems[1]){
+//             let pageId = { id: "100" };
+//             window.history.replaceState(pageId, navItems[1], `/${navItems[1]}`);
+//         }  
+//     }
+//     else if(windowPosition>navPositions[2]){
+//         if(activeItem!=navItems[2]){
+//             let pageId = { id: "100" };
+//             window.history.replaceState(pageId, navItems[2], `/${navItems[2]}`);
+//         }  
+//     }
+// }
+
 const scrollListeners=()=>{
     window.addEventListener('scroll', (e)=>{
         navbarActive();
         appearOnScroll('.t-translate-normal', 't-translate-down');
         appearOnScroll('.t-sketch-bg', 't-sketch-bg-translate-down');
+        // acitiveNavItem();
     })
 }
 
