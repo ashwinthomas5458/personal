@@ -761,7 +761,7 @@ h2{
  /* Responsive  */
 @media only screen and (max-width: 992px){
     body{
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
     .t-cover h1{font-size: 52px;}
     .t-works-carousel{width: 2830px;}
@@ -775,7 +775,7 @@ h2{
     }
     .t-works-carousel, .t-works-carousel-wrapper{ height: unset;}
     .t-works-card-wrapper p{
-        font-size: 13px;
+        font-size: 14px;
     }
     .t-about-text{
         margin-right: 4vw;
