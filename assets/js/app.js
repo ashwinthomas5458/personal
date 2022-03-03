@@ -8,7 +8,7 @@ window.addEventListener('load', ()=>{
         loaderRemove();
     }
     navItemClick();
-    worksSlider();
+    // worksSlider();
     scrollListeners();
     formListeners();
     // getNavPositions();
@@ -115,140 +115,146 @@ function tesseractAnime(){
     });
 }
 
-const worksSlider = ()=>{
-    const carousel = document.querySelector('.t-works-carousel');
-    const leftBtn = document.querySelector('.t-left-btn');
-    const rightBtn = document.querySelector('.t-right-btn');
-    const cards = document.querySelectorAll('.t-works-card-wrapper');
+// const worksSlider = ()=>{
+//     const carousel = document.querySelector('.t-works-carousel');
+//     const leftBtn = document.querySelector('.t-left-btn');
+//     const rightBtn = document.querySelector('.t-right-btn');
+//     const cards = document.querySelectorAll('.t-works-card-wrapper');
 
-    let dragStart;
-    let dragging;
-    let counter = 1;
-    let margin = 30;
-    const size = carousel.children[0].clientWidth+margin;
-    const offset = -((size+(carousel.children[1].clientWidth+margin)/2)-window.innerWidth/2);
-    carousel.style.transform = `translateX(${(offset-(size*(counter-1)))}px)`;
+//     let dragStart;
+//     let dragging;
+//     let counter = 1;
+//     let margin = 30;
+//     const size = carousel.children[0].clientWidth+margin;
+//     const offset = -((size+(carousel.children[1].clientWidth+margin)/2)-window.innerWidth/2);
+//     carousel.style.transform = `translateX(${(offset-(size*(counter-1)))}px)`;
 
-    carousel.addEventListener('mousedown',e=>{
-        dragging= true;
-        dragStart=e.screenX;
-    });
-    carousel.addEventListener('touchstart',e=>{
-        dragging= true;
-        dragStart=e.touches[0].screenX;
-        console.log(dragStart);
-    });
+//     carousel.addEventListener('mousedown',e=>{
+//         dragging= true;
+//         dragStart=e.screenX;
+//     });
+//     carousel.addEventListener('touchstart',e=>{
+//         dragging= true;
+//         dragStart=e.touches[0].screenX;
+//         console.log(dragStart);
+//     });
 
-    carousel.addEventListener('mouseup', (e)=>{ 
-        dragging=false;
-        let movedTo = e.screenX;
-        if(dragStart>movedTo) rightBtn.click();
-        else if(movedTo>dragStart) leftBtn.click();
-    });
-    carousel.addEventListener('touchend', (e)=>{ 
-        dragging=false;
-        let movedTo = e.changedTouches[0].screenX;
-        let distance = Math.abs(dragStart-movedTo);
-        if((dragStart>movedTo)&& distance>100) rightBtn.click();
-        else if((movedTo>dragStart) && distance>100) leftBtn.click();
-    });
-    carousel.addEventListener('mouseleave', ()=>{dragging=false;});
+//     carousel.addEventListener('mouseup', (e)=>{ 
+//         dragging=false;
+//         let movedTo = e.screenX;
+//         if(dragStart>movedTo) rightBtn.click();
+//         else if(movedTo>dragStart) leftBtn.click();
+//     });
+//     carousel.addEventListener('touchend', (e)=>{ 
+//         dragging=false;
+//         let movedTo = e.changedTouches[0].screenX;
+//         let distance = Math.abs(dragStart-movedTo);
+//         if((dragStart>movedTo)&& distance>100) rightBtn.click();
+//         else if((movedTo>dragStart) && distance>100) leftBtn.click();
+//     });
+//     carousel.addEventListener('mouseleave', ()=>{dragging=false;});
 
-    carousel.addEventListener('mousemove', e=>{
-        if(!dragging) return;
-        e.preventDefault();
-    })
+//     carousel.addEventListener('mousemove', e=>{
+//         if(!dragging) return;
+//         e.preventDefault();
+//     })
 
-    leftBtn.addEventListener('click', ()=>{
-        if(counter<1) return;
-        if(window.innerWidth>767) removeCardAnime();
-        carousel.style.transition = `transform 0.5s ease-in-out`;
-        if(window.innerWidth<575) carousel.style.transition = `transform 0.7s ease-in-out`;
-        cards[counter].classList.remove('t-card-active');
-        counter = counter-1;
-        cards.forEach(card=>{
-            card.classList.add('t-card-inactive');
-            card.removeAttribute("href");
-        });
-        carousel.style.transform = `translateX(${(offset-(size*(counter-1)))}px)`;
-    });
+//     leftBtn.addEventListener('click', ()=>{
+//         if(counter<1) return;
+//         if(window.innerWidth>767) removeCardAnime();
+//         carousel.style.transition = `transform 0.5s ease-in-out`;
+//         if(window.innerWidth<575) carousel.style.transition = `transform 0.7s ease-in-out`;
+//         cards[counter].classList.remove('t-card-active');
+//         counter = counter-1;
+//         cards.forEach(card=>{
+//             card.classList.add('t-card-inactive');
+//             card.removeAttribute("href");
+//         });
+//         carousel.style.transform = `translateX(${(offset-(size*(counter-1)))}px)`;
+//     });
 
-    rightBtn.addEventListener('click', ()=>{
-        if(counter>3) return;
-        if(window.innerWidth>767) removeCardAnime();
-        carousel.style.transition = `transform 0.5s ease-in-out`;
-        if(window.innerWidth<575) carousel.style.transition = `transform 0.7s ease-in-out`;
-        cards[counter].classList.remove('t-card-active');
-        counter = counter+1;
-        cards.forEach(card=>{
-            card.classList.add('t-card-inactive');
-            card.removeAttribute("href");
-        });
-        carousel.style.transform = `translateX(${(offset-(size*(counter-1)))}px)`;
-    });
+//     rightBtn.addEventListener('click', ()=>{
+//         if(counter>3) return;
+//         if(window.innerWidth>767) removeCardAnime();
+//         carousel.style.transition = `transform 0.5s ease-in-out`;
+//         if(window.innerWidth<575) carousel.style.transition = `transform 0.7s ease-in-out`;
+//         cards[counter].classList.remove('t-card-active');
+//         counter = counter+1;
+//         cards.forEach(card=>{
+//             card.classList.add('t-card-inactive');
+//             card.removeAttribute("href");
+//         });
+//         carousel.style.transform = `translateX(${(offset-(size*(counter-1)))}px)`;
+//     });
 
     
-    cards.forEach((card, i)=>{
-        card.addEventListener('click',()=>{
-            if(card.classList.contains('t-card-inactive')){
-                if(window.innerWidth>767) removeCardAnime();
-                carousel.style.transition = `transform 0.5s ease-in-out`;
-                cards[counter].classList.remove('t-card-active');
-                counter = i;
-                cards.forEach(card=>{
-                    card.classList.add('t-card-inactive');
-                    card.removeAttribute("href");
-                });
-                carousel.style.transform = `translateX(${(offset-(size*(counter-1)))}px)`;
-            }
-        })
-    })
+//     cards.forEach((card, i)=>{
+//         card.addEventListener('click',()=>{
+//             if(card.classList.contains('t-card-inactive')){
+//                 if(window.innerWidth>767) removeCardAnime();
+//                 carousel.style.transition = `transform 0.5s ease-in-out`;
+//                 cards[counter].classList.remove('t-card-active');
+//                 counter = i;
+//                 cards.forEach(card=>{
+//                     card.classList.add('t-card-inactive');
+//                     card.removeAttribute("href");
+//                 });
+//                 carousel.style.transform = `translateX(${(offset-(size*(counter-1)))}px)`;
+//             }
+//         })
+//     })
 
-    carousel.addEventListener('transitionend', ()=>{
-        if(counter==0){
-            carousel.style.transition = "none";
-            counter = 3;
-            carousel.style.transform = `translateX(${(offset-(size*(counter-1)))}px)`;
-            cards[counter].classList.remove('t-card-inactive');
-            cards[counter].classList.add('t-card-active');
-            const location = cards[counter].dataset.target;
-            cards[counter].href=location;
-            if(window.innerWidth>767) cardAnime();
-        }
-        else if(counter==4){
-            carousel.style.transition = "none";
-            counter = 1;
-            carousel.style.transform = `translateX(${(offset-(size*(counter-1)))}px)`;
-            cards[counter].classList.remove('t-card-inactive');
-            cards[counter].classList.add('t-card-active');
-            const location = cards[counter].dataset.target;
-            cards[counter].href=location;
-            if(window.innerWidth>767) cardAnime();
-        }
-        else{
-            cards[counter].classList.remove('t-card-inactive');
-            cards[counter].classList.add('t-card-active');
-            const location = cards[counter].dataset.target;
-            cards[counter].href=location;
-            if(window.innerWidth>767) cardAnime();
-        }
+//     carousel.addEventListener('transitionend', ()=>{
+//         if(counter==0){
+//             carousel.style.transition = "none";
+//             counter = 3;
+//             carousel.style.transform = `translateX(${(offset-(size*(counter-1)))}px)`;
+//             cards[counter].classList.remove('t-card-inactive');
+//             cards[counter].classList.add('t-card-active');
+//             const location = cards[counter].dataset.target;
+//             cards[counter].href=location;
+//             if(window.innerWidth>767) cardAnime();
+//         }
+//         else if(counter==4){
+//             carousel.style.transition = "none";
+//             counter = 1;
+//             carousel.style.transform = `translateX(${(offset-(size*(counter-1)))}px)`;
+//             cards[counter].classList.remove('t-card-inactive');
+//             cards[counter].classList.add('t-card-active');
+//             const location = cards[counter].dataset.target;
+//             cards[counter].href=location;
+//             if(window.innerWidth>767) cardAnime();
+//         }
+//         else{
+//             cards[counter].classList.remove('t-card-inactive');
+//             cards[counter].classList.add('t-card-active');
+//             const location = cards[counter].dataset.target;
+//             cards[counter].href=location;
+//             if(window.innerWidth>767) cardAnime();
+//         }
+//     });
+// }
+
+const cardAnime = ()=>{
+    const activeCards = document.querySelectorAll('.t-card-active');
+    activeCards.forEach((activeCard, i)=>{
+        activeCard.addEventListener("mousemove", e=> activeCardMouseMove(i, e));
+        activeCard.addEventListener("mouseleave", e=> activeCardMouseLeave(i, e));
     });
 }
 
-const cardAnime = ()=>{
-    const activeCard = document.querySelector('.t-card-active');
-    activeCard.addEventListener("mousemove", activeCardMouseMove);
-    activeCard.addEventListener("mouseleave", activeCardMouseLeave);
-}
+// const removeCardAnime=()=>{
+//     const activeCards = document.querySelectorAll('.t-card-active');
+//     activeCards.forEach((activeCard, i)=>{
+//         activeCard.removeEventListener("mousemove", activeCardMouseMove(i));
+//         activeCard.removeEventListener("mouseleave", activeCardMouseLeave(i));
+//     });
+// }
 
-const removeCardAnime=()=>{
-    const activeCard = document.querySelector('.t-card-active');
-    activeCard.removeEventListener("mousemove", activeCardMouseMove);
-    activeCard.removeEventListener("mouseleave", activeCardMouseLeave);
-}
+function activeCardMouseMove(i, event){
+    const activeCards = document.querySelectorAll('.t-card-active');
+    const activeCard = activeCards[i]
 
-function activeCardMouseMove(event){
-    const activeCard = document.querySelector('.t-card-active');
     const cardImages = activeCard.querySelector('.t-mockup-image');
     const cardImagesSmall = activeCard.querySelector('.t-mockup-image-small');
     const cardElement = activeCard.children[0];
@@ -266,8 +272,10 @@ function activeCardMouseMove(event){
     cardImagesSmall.style.transform = `rotateX(${-rotateX}deg) rotateY(${-rotateY*0.5}deg) translateZ(30px)`;
 }
 
-function activeCardMouseLeave(e){
-    const activeCard = document.querySelector('.t-card-active');
+function activeCardMouseLeave(i, e){
+    const activeCards = document.querySelectorAll('.t-card-active');
+    const activeCard = activeCards[i]
+    
     const cardImages = activeCard.querySelector('.t-mockup-image');
     const cardImagesSmall = activeCard.querySelector('.t-mockup-image-small');
     const cardElement = activeCard.children[0];
