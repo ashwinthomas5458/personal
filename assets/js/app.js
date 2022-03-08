@@ -11,6 +11,7 @@ window.addEventListener('load', ()=>{
     // worksSlider();
     scrollListeners();
     formListeners();
+    replaceImages();
     // getNavPositions();
 });
 
@@ -283,6 +284,16 @@ function activeCardMouseLeave(i, e){
     cardElement.style.transform=`rotateX(0deg) rotateY(0deg) `;
     cardImages.style.transform = `rotateX(0deg) rotateY(0deg) translateZ(20px)`;
     cardImagesSmall.style.transform = `rotateX(0deg) rotateY(0deg) translateZ(30px)`;
+}
+
+const replaceImages=()=>{
+    const mockups = document.querySelectorAll(".i-responsive-img");
+    mockups.forEach(mockup=>{
+        let currentSrc = mockup.src;
+        let newSrc="";
+        newSrc = currentSrc.replace("SM", "LG");
+        mockup.src = newSrc;
+    });
 }
 
 const navbarActive=()=>{

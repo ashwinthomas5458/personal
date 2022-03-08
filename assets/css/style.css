@@ -540,6 +540,9 @@ h2{
     left: -12%;
     top: -5%;
 }
+.t-inches-new img.t-mockup-image{
+    width: 60%;
+}
 .t-inches-new .t-mockup-image-small{
     left: 30%;
     bottom: 5%;
