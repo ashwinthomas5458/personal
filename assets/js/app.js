@@ -1,256 +1,4 @@
-window.addEventListener('load', ()=>{
-    if(window.innerWidth>767){
-        loaderFade();
-        // activateTesseract();
-        cardAnime();
-    }
-    else{
-        loaderRemove();
-    }
-    navItemClick();
-    // worksSlider();
-    scrollListeners();
-    formListeners();
-    replaceImages();
-    // getNavPositions();
-});
-
-// let navItems = ["works", "about", "contact"];
-// let navPositions=[];
-
-// const getNavPositions=()=>{
-//     navItems.forEach(navItem=>{
-//         let targetItem = document.querySelector(`#${navItem}`);
-//         let postion = targetItem.offsetTop-2;
-//         navPositions.push(postion);
-//     });
-// }
-
-const loaderRemove=()=>{
-    const coverText = document.querySelector('.t-text');
-    const body = document.querySelector('.t-body');
-    const tesseractWrapper = document.querySelector('.t-tesseract-wrapper');
-    const tesseract = document.querySelector('.tesseract');
-    const navBar = document.querySelector('.t-navBar');
-
-    tesseractWrapper.classList.add('t-nav-fade');
-    navBar.classList.remove('t-nav-fade');
-    setTimeout(()=>{
-        tesseractWrapper.classList.add('d-none');
-        coverText.classList.remove('d-none');
-    },600);
-    setTimeout(()=>{
-        coverText.classList.remove('t-cover-scroll');
-        body.classList.remove('position-fixed');
-        tesseract.classList.remove('tesseractAnime');
-    },700);
-}
-
-const loaderFade=()=>{
-    const coverText = document.querySelector('.t-text');
-    const body = document.querySelector('.t-body');
-    const tesseractWrapper = document.querySelector('.t-tesseract-wrapper');
-    const tesseract = document.querySelector('.tesseract');
-    const navBar = document.querySelector('.t-navBar');
-
-    coverText.classList.remove('d-none');
-    tesseractWrapper.classList.remove('container');
-    setTimeout(()=>{
-        coverText.classList.remove('t-cover-scroll');
-        navBar.classList.remove('t-nav-fade');
-        body.classList.remove('position-fixed');
-        tesseract.classList.remove('tesseractAnime');
-    },300);
-    setTimeout(()=>{
-        tesseract.classList.add('tesseractPosition');
-        tesseractAnime();
-    },1000);
-}
-
-// const activateTesseract=()=>{
-//     const cover = document.querySelector('.t-cover');
-//     let tesseract = document.createElement('div');
-//     tesseract.classList.add('t-tesseract-wrapper', 'position-relative');
-//     tesseract.innerHTML = `<div class="position-absolute t-tesseract-glow"></div>
-//         <div class="tesseract">
-//             <div class="t-outer-cube">
-//                 <div class="top"></div>
-//                 <div class="front"></div>
-//                 <div class="back"></div>
-//                 <div class="right"></div>
-//                 <div class="left"></div>
-//                 <div class="bottom"></div> 
-//             </div>
-//             <div class="t-inner-cube">
-//                 <div class="top"></div>
-//                 <div class="front"></div>
-//                 <div class="back"></div>
-//                 <div class="right"></div>
-//                 <div class="left"></div>
-//                 <div class="bottom"></div> 
-//             </div>
-//         </div>`;
-//     cover.appendChild(tesseract);
-     
-//     tesseractAnime(); 
-// }
-
-function tesseractAnime(){
-    const tesseractWrapper = document.querySelector('.t-tesseract-wrapper');
-    const tesseract = document.querySelector('.tesseract');
-
-    tesseractWrapper.addEventListener("mousemove", (event)=> {
-        const wrapperWidth = tesseractWrapper.offsetWidth;
-        const wrapperHeight = tesseractWrapper.offsetHeight;
-        const centerX = tesseractWrapper.offsetLeft + wrapperWidth / 2;
-        const centerY = tesseractWrapper.getBoundingClientRect().top + wrapperHeight / 2;
-        const mouseX = event.clientX - centerX;
-        const mouseY = event.clientY - centerY;
-        const rotateX = (-1) * 10 * mouseY / (wrapperHeight / 2);
-        const rotateY =  10 * mouseX / (wrapperWidth / 2);
-        tesseract.style.transform = `rotateX(${-6+rotateX*4}deg) rotateY(${20+rotateY*4}deg) `;
-    });
-
-    tesseractWrapper.addEventListener("mouseleave", (e)=>{
-        tesseract.style.transform=`rotateX(-6deg) rotateY(20deg) `;
-    });
-}
-
-// const worksSlider = ()=>{
-//     const carousel = document.querySelector('.t-works-carousel');
-//     const leftBtn = document.querySelector('.t-left-btn');
-//     const rightBtn = document.querySelector('.t-right-btn');
-//     const cards = document.querySelectorAll('.t-works-card-wrapper');
-
-//     let dragStart;
-//     let dragging;
-//     let counter = 1;
-//     let margin = 30;
-//     const size = carousel.children[0].clientWidth+margin;
-//     const offset = -((size+(carousel.children[1].clientWidth+margin)/2)-window.innerWidth/2);
-//     carousel.style.transform = `translateX(${(offset-(size*(counter-1)))}px)`;
-
-//     carousel.addEventListener('mousedown',e=>{
-//         dragging= true;
-//         dragStart=e.screenX;
-//     });
-//     carousel.addEventListener('touchstart',e=>{
-//         dragging= true;
-//         dragStart=e.touches[0].screenX;
-//         console.log(dragStart);
-//     });
-
-//     carousel.addEventListener('mouseup', (e)=>{ 
-//         dragging=false;
-//         let movedTo = e.screenX;
-//         if(dragStart>movedTo) rightBtn.click();
-//         else if(movedTo>dragStart) leftBtn.click();
-//     });
-//     carousel.addEventListener('touchend', (e)=>{ 
-//         dragging=false;
-//         let movedTo = e.changedTouches[0].screenX;
-//         let distance = Math.abs(dragStart-movedTo);
-//         if((dragStart>movedTo)&& distance>100) rightBtn.click();
-//         else if((movedTo>dragStart) && distance>100) leftBtn.click();
-//     });
-//     carousel.addEventListener('mouseleave', ()=>{dragging=false;});
-
-//     carousel.addEventListener('mousemove', e=>{
-//         if(!dragging) return;
-//         e.preventDefault();
-//     })
-
-//     leftBtn.addEventListener('click', ()=>{
-//         if(counter<1) return;
-//         if(window.innerWidth>767) removeCardAnime();
-//         carousel.style.transition = `transform 0.5s ease-in-out`;
-//         if(window.innerWidth<575) carousel.style.transition = `transform 0.7s ease-in-out`;
-//         cards[counter].classList.remove('t-card-active');
-//         counter = counter-1;
-//         cards.forEach(card=>{
-//             card.classList.add('t-card-inactive');
-//             card.removeAttribute("href");
-//         });
-//         carousel.style.transform = `translateX(${(offset-(size*(counter-1)))}px)`;
-//     });
-
-//     rightBtn.addEventListener('click', ()=>{
-//         if(counter>3) return;
-//         if(window.innerWidth>767) removeCardAnime();
-//         carousel.style.transition = `transform 0.5s ease-in-out`;
-//         if(window.innerWidth<575) carousel.style.transition = `transform 0.7s ease-in-out`;
-//         cards[counter].classList.remove('t-card-active');
-//         counter = counter+1;
-//         cards.forEach(card=>{
-//             card.classList.add('t-card-inactive');
-//             card.removeAttribute("href");
-//         });
-//         carousel.style.transform = `translateX(${(offset-(size*(counter-1)))}px)`;
-//     });
-
-    
-//     cards.forEach((card, i)=>{
-//         card.addEventListener('click',()=>{
-//             if(card.classList.contains('t-card-inactive')){
-//                 if(window.innerWidth>767) removeCardAnime();
-//                 carousel.style.transition = `transform 0.5s ease-in-out`;
-//                 cards[counter].classList.remove('t-card-active');
-//                 counter = i;
-//                 cards.forEach(card=>{
-//                     card.classList.add('t-card-inactive');
-//                     card.removeAttribute("href");
-//                 });
-//                 carousel.style.transform = `translateX(${(offset-(size*(counter-1)))}px)`;
-//             }
-//         })
-//     })
-
-//     carousel.addEventListener('transitionend', ()=>{
-//         if(counter==0){
-//             carousel.style.transition = "none";
-//             counter = 3;
-//             carousel.style.transform = `translateX(${(offset-(size*(counter-1)))}px)`;
-//             cards[counter].classList.remove('t-card-inactive');
-//             cards[counter].classList.add('t-card-active');
-//             const location = cards[counter].dataset.target;
-//             cards[counter].href=location;
-//             if(window.innerWidth>767) cardAnime();
-//         }
-//         else if(counter==4){
-//             carousel.style.transition = "none";
-//             counter = 1;
-//             carousel.style.transform = `translateX(${(offset-(size*(counter-1)))}px)`;
-//             cards[counter].classList.remove('t-card-inactive');
-//             cards[counter].classList.add('t-card-active');
-//             const location = cards[counter].dataset.target;
-//             cards[counter].href=location;
-//             if(window.innerWidth>767) cardAnime();
-//         }
-//         else{
-//             cards[counter].classList.remove('t-card-inactive');
-//             cards[counter].classList.add('t-card-active');
-//             const location = cards[counter].dataset.target;
-//             cards[counter].href=location;
-//             if(window.innerWidth>767) cardAnime();
-//         }
-//     });
-// }
-
-const cardAnime = ()=>{
-    const activeCards = document.querySelectorAll('.t-card-active');
-    activeCards.forEach((activeCard, i)=>{
-        activeCard.addEventListener("mousemove", e=> activeCardMouseMove(i, e));
-        activeCard.addEventListener("mouseleave", e=> activeCardMouseLeave(i, e));
-    });
-}
-
-// const removeCardAnime=()=>{
-//     const activeCards = document.querySelectorAll('.t-card-active');
-//     activeCards.forEach((activeCard, i)=>{
-//         activeCard.removeEventListener("mousemove", activeCardMouseMove(i));
-//         activeCard.removeEventListener("mouseleave", activeCardMouseLeave(i));
-//     });
-// }
+let textHoverRefresh = false;
 
 function activeCardMouseMove(i, event){
     const activeCards = document.querySelectorAll('.t-card-active');
@@ -326,43 +74,107 @@ const navItemClick = ()=>{
             let targetId = link.dataset.navTarget; 
             let targetItem = document.querySelector(`#${targetId}`);
             window.scrollTo(0, targetItem.offsetTop);
-            // let pageId = { id: "100" };
-            // window.history.replaceState(pageId, targetId, `/${targetId}`);
         });
     });
 }
 
-// const acitiveNavItem=()=>{
-//     let windowPosition = window.window.pageYOffset;
-//     let urlItems = window.location.href.split('/');
-//     let activeItem = urlItems[3];
+function tesseractAnime(){
+    const coverWrapper = document.querySelector('.t-cover-wrapper');
+    const tesseract = document.querySelector('.tesseract');
 
-    
+    coverWrapper.addEventListener("mousemove", (event)=> {
+        const wrapperWidth = coverWrapper.offsetWidth;
+        const wrapperHeight = coverWrapper.offsetHeight;
+        const centerX = coverWrapper.offsetLeft + wrapperWidth / 2;
+        const centerY = coverWrapper.getBoundingClientRect().top + wrapperHeight / 2;
+        const mouseX = event.clientX - centerX;
+        const mouseY = event.clientY - centerY;
+        const rotateX = (-1) * 10 * mouseY / (wrapperHeight / 2);
+        const rotateY =  10 * mouseX / (wrapperWidth / 2);
+        tesseract.style.transform = `rotateX(${-6+rotateX*4}deg) rotateY(${20+rotateY*4}deg) `;
+    });
 
-//     if(windowPosition<navPositions[0]){
-//         if(activeItem){
-//             let pageId = { id: "100" };
-//             window.history.replaceState(pageId, "home", `/`);
-//         }
+    coverWrapper.addEventListener("mouseleave", (e)=>{
+        tesseract.style.transform=`rotateX(-6deg) rotateY(20deg) `;
+    });
+}
+
+const cardAnime = ()=>{
+    const activeCards = document.querySelectorAll('.t-card-active');
+    activeCards.forEach((activeCard, i)=>{
+        activeCard.addEventListener("mousemove", e=> activeCardMouseMove(i, e));
+        activeCard.addEventListener("mouseleave", e=> activeCardMouseLeave(i, e));
+    });
+}
+
+const loaderRemove=()=>{
+    const coverText = document.querySelector('.t-text');
+    const body = document.querySelector('.t-body');
+    const tesseractWrapper = document.querySelector('.t-tesseract-wrapper');
+    const tesseract = document.querySelector('.tesseract');
+    const navBar = document.querySelector('.t-navBar');
+
+    tesseractWrapper.classList.add('t-nav-fade');
+    setTimeout(()=>{
+        navBar.classList.remove('t-nav-fade');
+        tesseractWrapper.classList.add('d-none');
+        coverText.classList.remove('t-text-compressed');
+    },600);
+    setTimeout(()=>{
+        coverText.classList.remove('t-cover-scroll');
+        body.classList.remove('position-fixed');
+        tesseract.classList.remove('tesseractAnime');
+    },700);
+}
+
+const loaderFade=()=>{
+    const coverText = document.querySelector('.t-text');
+    const body = document.querySelector('.t-body');
+    const tesseractWrapper = document.querySelector('.t-tesseract-wrapper');
+    const tesseract = document.querySelector('.tesseract');
+    const navBar = document.querySelector('.t-navBar');
+
+    setTimeout(()=>{
+        coverText.classList.remove('t-text-compressed');
+        coverText.classList.remove('t-cover-scroll');
+        navBar.classList.remove('t-nav-fade');
+        body.classList.remove('position-fixed');
+        tesseract.classList.remove('tesseractAnime');
+    },300);
+    setTimeout(()=>{
+        tesseract.classList.add('tesseractPosition');
+    },1000);
+    // setTimeout(() => {
+    //     textFadeIn();
+    // }, 2000);
+    setTimeout(()=>{
+        tesseract.classList.remove('t-tesseract-slow');
+        tesseractAnime();
+    },3000);
+}
+
+// const textFadeIn = ()=>{
+
+//     const charAppear=()=>{
+//         titleAlphabets[count].classList.add("t-title-alphabet-fade-in");
+//         count = count + 1;
+//         if(count=== titleAlphabets.length) clearTimer();
 //     }
-//     else if(windowPosition>navPositions[0]&&windowPosition<navPositions[1]){
-//         if(activeItem!=navItems[0]){
-//             let pageId = { id: "100" };
-//             window.history.replaceState(pageId, navItems[0], `/${navItems[0]}`);
-//         }  
+
+//     const clearTimer=()=>{
+//         clearInterval(timer);
+//         setTimeout(() => {
+//             titleAlphabets.forEach(alphabet=>{
+//                 alphabet.style.opacity = 1;
+//                 alphabet.classList.remove("t-title-alphabet-fade-in");
+//             });
+//         }, 1000);
 //     }
-//     else if(windowPosition>navPositions[1]&&windowPosition<navPositions[2]){
-//         if(activeItem!=navItems[1]){
-//             let pageId = { id: "100" };
-//             window.history.replaceState(pageId, navItems[1], `/${navItems[1]}`);
-//         }  
-//     }
-//     else if(windowPosition>navPositions[2]){
-//         if(activeItem!=navItems[2]){
-//             let pageId = { id: "100" };
-//             window.history.replaceState(pageId, navItems[2], `/${navItems[2]}`);
-//         }  
-//     }
+
+//     let count = 0;
+
+//     let titleAlphabets = document.querySelectorAll(".t-title-alphabet");
+//     let timer = setInterval(charAppear, 120);
 // }
 
 const scrollListeners=()=>{
@@ -370,7 +182,6 @@ const scrollListeners=()=>{
         navbarActive();
         appearOnScroll('.t-translate-normal', 't-translate-down');
         appearOnScroll('.t-sketch-bg', 't-sketch-bg-translate-down');
-        // acitiveNavItem();
     })
 }
 
@@ -439,3 +250,52 @@ const formListeners=()=>{
     numberInput.addEventListener('focus', ()=>numberInput.parentElement.classList.remove('t-input-invalid'))
     mailInput.addEventListener('focus', ()=>mailInput.parentElement.classList.remove('t-input-invalid'))
 }
+
+const splitUpText=()=>{
+    const coverTexts = document.querySelectorAll(".t-cover-text");
+    coverTexts.forEach(item=>{
+        let coverText = item.textContent;
+        addSpans(coverText, item);
+    });
+    textHoverEffect();
+}
+
+const textHoverEffect=()=>{
+    let titleAlphabets = document.querySelectorAll(".t-title-alphabet");
+    titleAlphabets.forEach(alphabet=>{
+        alphabet.addEventListener("mouseover", ()=>{
+            if(!alphabet.classList.contains("t-title-alphabet-animation")&& !textHoverRefresh){
+                alphabet.classList.add("t-title-alphabet-animation");
+                textHoverRefresh = true;
+                setTimeout(()=>{
+                    alphabet.classList.remove("t-title-alphabet-animation");
+                    textHoverRefresh = false;
+                },1000)
+            }
+        });
+    })
+}
+
+const addSpans=(coverText, element)=>{
+    let txtArray = coverText.split("");
+    let updatedInnerHTML = `${txtArray.map(alph=>{
+        if(alph===" ") return `<span class="t-title-alphabet px-1"></span>`;
+        else return `<span class="t-title-alphabet">${alph}</span>`;
+    }).join("")}`;
+    element.innerHTML = updatedInnerHTML;
+}
+
+window.addEventListener('load', ()=>{
+    splitUpText();
+    if(window.innerWidth>767){
+        loaderFade();
+        cardAnime();
+    }
+    else{
+        loaderRemove();
+    }
+    navItemClick();
+    scrollListeners();
+    formListeners();
+    replaceImages();
+});
