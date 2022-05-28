@@ -16,7 +16,7 @@ function activeCardMouseMove(i, event){
     const mouseY = event.clientY - centerY;
     const rotateX = (-1) * mouseY / (wrapperHeight / 2);
     const rotateY = mouseX / (wrapperWidth / 2);
-    cardElement.style.transform = `rotateX(${rotateX*2}deg) rotateY(${rotateY}deg) `;
+    cardElement.style.transform = `rotateX(${rotateX*3}deg) rotateY(${rotateY*2}deg) `;
     cardImages.style.transform = `rotateX(${-rotateX}deg) rotateY(${-rotateY*0.5}deg) translateZ(20px)`;
     cardImagesSmall.style.transform = `rotateX(${-rotateX}deg) rotateY(${-rotateY*0.5}deg) translateZ(30px)`;
 }
@@ -89,8 +89,8 @@ function tesseractAnime(){
         const centerY = coverWrapper.getBoundingClientRect().top + wrapperHeight / 2;
         const mouseX = event.clientX - centerX;
         const mouseY = event.clientY - centerY;
-        const rotateX = (-1) * 10 * mouseY / (wrapperHeight / 2);
-        const rotateY =  10 * mouseX / (wrapperWidth / 2);
+        const rotateX = (-1) * 20 * mouseY / (wrapperHeight / 2);
+        const rotateY =  20 * mouseX / (wrapperWidth / 2);
         tesseract.style.transform = `rotateX(${-6+rotateX*4}deg) rotateY(${20+rotateY*4}deg) `;
     });
 

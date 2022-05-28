@@ -454,6 +454,8 @@ button{
 }
 .t-stack.t-stack-html{background-image: url(../../assets/images/icons/html.svg);}
 .t-stack.t-stack-css{background-image: url(../../assets/images/icons/css.svg);}
+.t-stack.t-stack-angular{background-image: url(../../assets/images/icons/angular.svg);}
+.t-stack.t-stack-figma{background-image: url(../../assets/images/icons/figma.svg);}
 .t-stack.t-stack-js{background-image: url(../../assets/images/icons/js.svg);}
 .t-stack.t-stack-react{background-image: url(../../assets/images/icons/react.svg);}
 .t-stack.t-stack-sass{background-image: url(../../assets/images/icons/sass.svg);}
