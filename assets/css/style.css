@@ -709,7 +709,7 @@ h2{
     top: 0;
     opacity: 0;
 }
-/* Light mode Check */
+/* Dark mode Check */
 @media (prefers-color-scheme: dark) {
     body{
         background-color: #151515;
